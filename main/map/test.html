@@ -1,0 +1,70 @@
+
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mapbox Markers Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
+  <style>
+    #map {
+      height: 500px;
+      width: 100%;
+    }
+    .marker {
+      background-color: #3388ff;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.8);
+      cursor: pointer;
+    }
+    .marker:hover {
+      transform: scale(1.5);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="map"></div>
+
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWRpdHlhLTI0MDciLCJhIjoiY2xnZTN0dzltMXpnZDNjbzZ4NzB6dmk3aCJ9.q4IjsdbmlecZ52yeEXY2MQ';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [-122.4194, 37.7749],
+      zoom: 12
+    });
+
+    var markers = [{coordinates: [28.5278208, 77.0441216],
+  title: 'Land owner',
+  description: ' '},
+ {coordinates: [76.9640717,28.408571],
+  title: 'Land owner',
+  description: ' '},
+ {coordinates: [77.0441216,28.5278208 ],
+  title: 'Student',
+  description: ' '},
+ {coordinates: [71.9640737,28.4085764],
+  title: 'Incubator',
+  description: ' '}];
+
+    markers.forEach(function(marker) {
+      var el = document.createElement('div');
+      el.className = 'marker';
+      new mapboxgl.Marker(el)
+        .setLngLat(marker.coordinates)
+        .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+        .setHTML('<h3>' + marker.title + '</h3><p>' + marker.description + '</p>'))
+        .addTo(map);
+    });
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+  <!--begin::Head-->
+
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <head>
+    <title>Fauji Agro</title>
+    <meta charset="utf-8" />
+
+    <!--begin::Fonts(mandatory for all pages)-->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700"
+    />
+    <!--end::Fonts-->
+
+    <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
+    <link
+      href="/static/assets/plugins/global/plugins.bundle.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="/static/assets/css/style.bundle.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!--end::Global Stylesheets Bundle-->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css"
+      type="text/css"
+    />
+    <script>
+      // Frame-busting to prevent site from being loaded within a frame without permission (click-jacking)
+      if (window.top != window.self) {
+        window.top.location.replace(window.self.location.href);
+      }
+    </script>
+  </head>
+  <!--end::Head-->
+
+  <!--begin::Body-->
+  <body id="kt_body" class="app-blank">
+    <!--begin::Theme mode setup on page load-->
+    <script>
+      var defaultThemeMode = "light";
+      var themeMode;
+
+      if (document.documentElement) {
+        if (document.documentElement.hasAttribute("data-bs-theme-mode")) {
+          themeMode =
+            document.documentElement.getAttribute("data-bs-theme-mode");
+        } else {
+          if (localStorage.getItem("data-bs-theme") !== null) {
+            themeMode = localStorage.getItem("data-bs-theme");
+          } else {
+            themeMode = defaultThemeMode;
+          }
+        }
+
+        if (themeMode === "system") {
+          themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        }
+
+        document.documentElement.setAttribute("data-bs-theme", themeMode);
+      }
+    </script>
+    <!--end::Theme mode setup on page load-->
+
+    <!--begin::Root-->
+    <div class="d-flex flex-column flex-root" id="kt_app_root">
+      <!--begin::Authentication - Multi-steps-->
+      <div
+        class="d-flex flex-row flex-lg-row flex-column-fluid stepper stepper-pills stepper-column stepper-multistep"
+        id="kt_create_account_stepper"
+      >
+        <!--begin::Aside-->
+        <div class="d-flex flex-column flex-lg-row-auto w-lg-350px w-xl-500px">
+          <div
+            class="d-flex flex-column position-lg-fixed top-0 bottom-0 w-lg-350px w-xl-500px scroll-y bgi-size-cover bgi-position-center"
+            style="
+              background-image: url(/static/assets/media/agro-sign.png);
+              background-repeat: no-repeat;
+              background-size: cover;
+            "
+          >
+            <!--begin::Header-->
+            <div class="d-flex flex-center py-10 py-lg-20 mt-lg-20">
+              <!--begin::Logo-->
+              <a href="">
+                <img
+                  alt="Logo"
+                  src="/static/assets/media/custom-1.png"
+                  class="h-100px"
+                />
+              </a>
+              <!--end::Logo-->
+            </div>
+            <!--end::Header-->
+
+            <!--begin::Body-->
+            <div class="d-flex flex-row-fluid justify-content-center p-10">
+              <!--begin::Nav-->
+              <div class="stepper-nav d-none">
+                <!--begin::Step 1-->
+                <div class="stepper-item current" data-kt-stepper-element="nav">
+                  <!--begin::Wrapper-->
+                  <div class="stepper-wrapper">
+                    <!--begin::Icon-->
+                    <div class="stepper-icon rounded-3">
+                      <i class="ki-duotone ki-check fs-2 stepper-check"></i>
+                      <span class="stepper-number">1</span>
+                    </div>
+                    <!--end::Icon-->
+
+                    <!--begin::Label-->
+                    <div class="stepper-label">
+                      <h3 class="stepper-title fs-2">Location</h3>
+
+                      <div class="stepper-desc fw-normal">
+                        Select your desired location
+                      </div>
+                    </div>
+                    <!--end::Label-->
+                  </div>
+                  <!--end::Wrapper-->
+
+                  <!--begin::Line-->
+                  <div class="stepper-line h-40px"></div>
+                  <!--end::Line-->
+                </div>
+                <!--end::Step 1-->
+
+                <!--begin::Step 2-->
+                <div class="stepper-item" data-kt-stepper-element="nav">
+                  <!--begin::Wrapper-->
+                  <div class="stepper-wrapper">
+                    <!--begin::Icon-->
+                    <div class="stepper-icon rounded-3">
+                      <i class="ki-duotone ki-check fs-2 stepper-check"></i>
+                      <span class="stepper-number">2</span>
+                    </div>
+                    <!--end::Icon-->
+
+                    <!--begin::Label-->
+                    <div class="stepper-label">
+                      <h3 class="stepper-title fs-2">Personal Details</h3>
+                      <div class="stepper-desc fw-normal">
+                        Setup your Personal details
+                      </div>
+                    </div>
+                    <!--end::Label-->
+                  </div>
+                  <!--end::Wrapper-->
+
+                  <!--begin::Line-->
+                  <div class="stepper-line h-40px"></div>
+                  <!--end::Line-->
+                </div>
+                <!--end::Step 2-->
+
+                <!--begin::Step 3-->
+                <div class="stepper-item" data-kt-stepper-element="nav">
+                  <!--begin::Wrapper-->
+                  <div class="stepper-wrapper">
+                    <!--begin::Icon-->
+                    <div class="stepper-icon">
+                      <i class="ki-duotone ki-check fs-2 stepper-check"></i>
+                      <span class="stepper-number">3</span>
+                    </div>
+                    <!--end::Icon-->
+
+                    <!--begin::Label-->
+                    <div class="stepper-label">
+                      <h3 class="stepper-title fs-2">Categories</h3>
+                      <div class="stepper-desc fw-normal">
+                        Setup your Categories
+                      </div>
+                    </div>
+                    <!--end::Label-->
+                  </div>
+                  <!--end::Wrapper-->
+
+                  <!--begin::Line-->
+
+                  <!--end::Line-->
+                </div>
+                <!--end::Step 3-->
+              </div>
+              <!--end::Nav-->
+            </div>
+            <!--end::Body-->
+
+            <!--begin::Footer-->
+            <div class="d-flex flex-center flex-wrap px-5 py-10 d-none">
+              <!--begin::Links-->
+              <div class="d-flex fw-normal">
+                <a href="" class="text-success px-5" target="_blank">Home</a>
+
+                <a href="" class="text-success px-5" target="_blank"></a>
+
+                <a href="" class="text-success px-5" target="_blank"
+                  >Contact Us</a
+                >
+              </div>
+              <!--end::Links-->
+            </div>
+            <!--end::Footer-->
+          </div>
+        </div>
+        <!--begin::Aside-->
+
+        <!--begin::Body-->
+        <div class="d-flex flex-column flex-lg-row-fluid py-10">
+          <!--begin::Content-->
+          <div class="d-flex flex-center flex-column flex-column-fluid">
+            <!--begin::Wrapper-->
+            <div class="w-lg-650px w-xl-700px p-10 p-lg-15 mx-auto shadow-lg">
+              <!--begin::Form-->
+              <form
+                class="my-auto pb-5"
+                novalidate="novalidate"
+                id="kt_create_account_form"
+              >
+                <!--begin::Step 1-->
+                <div class="current" data-kt-stepper-element="content">
+                  <!--begin::Wrapper-->
+                  <div class="w-100">
+                    <!--begin::Heading-->
+                    <div class="pb-10 pb-lg-15">
+                      <!--begin::Title-->
+                      <h2 class="fw-bold d-flex align-items-center text-dark">
+                        Location
+
+                        <span
+                          class="ms-1"
+                          data-bs-toggle="tooltip"
+                          title="Billing is issued based on your selected account typ"
+                        >
+                          <i
+                            class="ki-duotone ki-information-5 text-gray-500 fs-6"
+                            ><span class="path1"></span
+                            ><span class="path2"></span
+                            ><span class="path3"></span></i
+                        ></span>
+                      </h2>
+                      <!--end::Title-->
+                    </div>
+                    <!--end::Heading-->
+
+                    <!--begin::Input group-->
+                    <div class="fv-row mb-8 col-12 row">
+                      <!--begin::Label-->
+                      <label class="form-label required"
+                        >Select Your Desired Location</label
+                      >
+                      <!--end::Label-->
+
+                      <!--begin::Input-->
+                      <input
+                        name="business_name"
+                        style="width: 60%"
+                        class="form-control align-content-lg-start col-8 d-none"
+                        value=""
+                      />
+                      <button
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#kt_modal_2"
+                        class="btn btn-lg btn-primary fw-bold align-content-end col-4"
+                      >
+                        <span class="indicator-label"> Select Location </span>
+                        <span class="indicator-progress">
+                          Please wait...
+                          <span
+                            class="spinner-border spinner-border-sm align-middle ms-2"
+                          ></span>
+                        </span>
+                      </button>
+                      <!--end::Input-->
+                    </div>
+                    <!--end::Input group-->
+
+                    <br />
+                    <!--begin::Input group-->
+                    <div class="fv-row m-5">
+                      <!--begin::Row-->
+                      <div class="row" id="selected-map">
+                        <form
+                          class="form w-100 mb-13"
+                          novalidate="novalidate"
+                          data-kt-redirect-url="/metronic8/demo1/../demo1/index.html"
+                          id="kt_sing_in_two_factor_form"
+                        >
+                          <img src="/static/assets/media/map.png" alt="" />
+                        </form>
+                      </div>
+                      <!--end::Row-->
+                    </div>
+                    <!--end::Input group-->
+                  </div>
+                  <!--end::Wrapper-->
+                </div>
+                <!--end::Step 1-->
+
+                <!--begin::Step 2-->
+                <div class="" data-kt-stepper-element="content">
+                  <!--begin::Wrapper-->
+                  <div class="w-100">
+                    <!--begin::Heading-->
+                    <div class="pb-10 pb-lg-15">
+                      <!--begin::Title-->
+                      <h2 class="fw-bold text-dark">Personal Details</h2>
+                      <!--end::Title-->
+
+                      <!--begin::Notice-->
+                      <div class="text-muted fw-semibold fs-6">
+                        Setup your personal details.
+                      </div>
+                      <!--end::Notice-->
+                    </div>
+                    <!--end::Heading-->
+
+                    <!--begin::Input group-->
+                    <div class="mb-10 fv-row">
+                      <!--begin::Label-->
+                      <!-- <label class="d-flex align-items-center form-label mb-3">
+            Specify Team Size
+
+
+<span class="ms-1"  data-bs-toggle="tooltip" title="Provide your team size to help us setup your billing" >
+	<i class="ki-duotone ki-information-5 text-gray-500 fs-6"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i></span>        </label> -->
+                      <!--end::Label-->
+
+                      <!--begin::Row-->
+                      <div
+                        class="row mb-2"
+                        style="display: none"
+                        data-kt-buttons="true"
+                      >
+                        <!--begin::Col-->
+                        <div class="col">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              value="1-1"
+                            />
+                            <span class="fw-bold fs-3">1-1</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+
+                        <!--begin::Col-->
+                        <div class="col">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4 active"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              checked
+                              value="2-10"
+                            />
+                            <span class="fw-bold fs-3">2-10</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+
+                        <!--begin::Col-->
+                        <div class="col">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              value="10-50"
+                            />
+                            <span class="fw-bold fs-3">10-50</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+
+                        <!--begin::Col-->
+                        <div class="col">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              value="50+"
+                            />
+                            <span class="fw-bold fs-3">50+</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+                      </div>
+                      <!--end::Row-->
+
+                      <!--begin::Hint-->
+                      <!-- <div class="form-text">
+            Customers will see this shortened version of your statement descriptor
+        </div> -->
+                      <!--end::Hint-->
+                    </div>
+
+                    <div class="col-12 row">
+                      <!--end::Input group-->
+
+                      <!--begin::Input group-->
+                      <div class="mb-10 fv-row col-6">
+                        <!--begin::Label-->
+                        <label class="form-label mb-3">Your Name</label>
+                        <!--end::Label-->
+
+                        <!--begin::Input-->
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="account_name"
+                          placeholder=""
+                          value=""
+                        />
+                        <!--end::Input-->
+                      </div>
+                      <!--end::Input group-->
+                      <!--begin::Input group-->
+                      <div class="mb-10 fv-row col-6">
+                        <!--begin::Label-->
+                        <label class="form-label mb-3">Your Email</label>
+                        <!--end::Label-->
+
+                        <!--begin::Input-->
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="account_name"
+                          placeholder=""
+                          value=""
+                        />
+                        <!--end::Input-->
+                      </div>
+                      <!--end::Input group-->
+                    </div>
+
+                    <!--begin::Input group-->
+                    <div class="fv-row mb-10">
+                      <!--begin::Label-->
+                      <label class="form-label required">Select State</label>
+                      <!--end::Label-->
+
+                      <!--begin::Input-->
+                      <select
+                        name="business_type"
+                        class="form-select form-select-lg form-select-solid"
+                        data-control="select2"
+                        data-placeholder="Select..."
+                        data-allow-clear="true"
+                        data-hide-search="true"
+                        onchange="print_city('state', this.selectedIndex);"
+                        id="sts"
+                        name="stt"
+                        required
+                      >
+                        <option></option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Andaman and Nicobar Islands">
+                          Andaman and Nicobar Islands
+                        </option>
+                        <option value="Arunachal Pradesh">
+                          Arunachal Pradesh
+                        </option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Dadar and Nagar Haveli">
+                          Dadar and Nagar Haveli
+                        </option>
+                        <option value="Daman and Diu">Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Puducherry">Puducherry</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">
+                          Himachal Pradesh
+                        </option>
+                        <option value="Jammu and Kashmir">
+                          Jammu and Kashmir
+                        </option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                      </select>
+                      <!--end::Input-->
+                    </div>
+                    <!--end::Input group-->
+                    <!--begin::Input group-->
+                    <div class="mb-0 fv-row">
+                      <!--begin::Label-->
+                      <label class="d-flex align-items-center form-label mb-5">
+                        Select your Role
+
+                        <span
+                          class="ms-1"
+                          data-bs-toggle="tooltip"
+                          title="Monthly billing will be based on your account plan"
+                        >
+                          <i
+                            class="ki-duotone ki-information-5 text-gray-500 fs-6"
+                            ><span class="path1"></span
+                            ><span class="path2"></span
+                            ><span class="path3"></span></i
+                        ></span>
+                      </label>
+                      <!--end::Label-->
+
+                      <!--begin::Options-->
+                      <div class="mb-0">
+                        <!--begin:Option-->
+                        <label class="d-flex flex-stack mb-5 cursor-pointer">
+                          <!--begin:Label-->
+                          <span class="d-flex align-items-center me-2">
+                            <!--begin::Icon-->
+                            <span class="symbol symbol-50px me-6">
+                              <span class="symbol-label">
+                                <i class="la la-tractor fs-1 text-gray-600"
+                                  ><span class="path1"></span
+                                  ><span class="path2"></span
+                                ></i>
+                              </span>
+                            </span>
+                            <!--end::Icon-->
+
+                            <!--begin::Description-->
+                            <span class="d-flex flex-column">
+                              <span
+                                class="fw-bold text-gray-800 text-hover-primary fs-5"
+                                >Farmer</span
+                              >
+                              <!-- <span class="fs-6 fw-semibold text-muted">Use images to enhance your post flow</span> -->
+                            </span>
+                            <!--end:Description-->
+                          </span>
+                          <!--end:Label-->
+
+                          <!--begin:Input-->
+                          <span
+                            class="form-check form-check-custom form-check-solid"
+                          >
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="account_plan"
+                              value="1"
+                            />
+                          </span>
+                          <!--end:Input-->
+                        </label>
+                        <!--end::Option-->
+
+                        <!--begin:Option-->
+                        <label class="d-flex flex-stack mb-5 cursor-pointer">
+                          <!--begin:Label-->
+                          <span class="d-flex align-items-center me-2">
+                            <!--begin::Icon-->
+                            <span class="symbol symbol-50px me-6">
+                              <span class="symbol-label">
+                                <i class="la la-store fs-1 text-gray-600"
+                                  ><span class="path1"></span
+                                  ><span class="path2"></span
+                                ></i>
+                              </span>
+                            </span>
+                            <!--end::Icon-->
+
+                            <!--begin::Description-->
+                            <span class="d-flex flex-column">
+                              <span
+                                class="fw-bold text-gray-800 text-hover-primary fs-5"
+                                >trader</span
+                              >
+                              <!-- <span class="fs-6 fw-semibold text-muted">Use images to your post time</span> -->
+                            </span>
+                            <!--end:Description-->
+                          </span>
+                          <!--end:Label-->
+
+                          <!--begin:Input-->
+                          <span
+                            class="form-check form-check-custom form-check-solid"
+                          >
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              checked
+                              name="account_plan"
+                              value="2"
+                            />
+                          </span>
+                          <!--end:Input-->
+                        </label>
+                        <!--end::Option-->
+
+                        <!--begin:Option-->
+                        <label class="d-flex flex-stack mb-5 cursor-pointer">
+                          <!--begin:Label-->
+                          <span class="d-flex align-items-center me-2">
+                            <!--begin::Icon-->
+                            <span class="symbol symbol-50px me-6">
+                              <span class="symbol-label">
+                                <i
+                                  class="la la-search-location fs-1 text-gray-600"
+                                  ><span class="path1"></span
+                                  ><span class="path2"></span
+                                  ><span class="path3"></span
+                                ></i>
+                              </span>
+                            </span>
+                            <!--end::Icon-->
+
+                            <!--begin::Description-->
+                            <span class="d-flex flex-column">
+                              <span
+                                class="fw-bold text-gray-800 text-hover-primary fs-5"
+                                >land owner</span
+                              >
+                              <!-- <span class="fs-6 fw-semibold text-muted">Use images to enhance time travel rivers</span> -->
+                            </span>
+                            <!--end:Description-->
+                          </span>
+                          <!--end:Label-->
+
+                          <!--begin:Input-->
+                          <span
+                            class="form-check form-check-custom form-check-solid"
+                          >
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="account_plan"
+                              value="3"
+                            />
+                          </span>
+                          <!--end:Input-->
+                        </label>
+                        <!--end::Option-->
+                        <!--begin:Option-->
+                        <label class="d-flex flex-stack mb-5 cursor-pointer">
+                          <!--begin:Label-->
+                          <span class="d-flex align-items-center me-2">
+                            <!--begin::Icon-->
+                            <span class="symbol symbol-50px me-6">
+                              <span class="symbol-label">
+                                <i class="la la-shield fs-1 text-gray-600"
+                                  ><span class="path1"></span
+                                  ><span class="path2"></span
+                                  ><span class="path3"></span
+                                ></i>
+                              </span>
+                            </span>
+                            <!--end::Icon-->
+
+                            <!--begin::Description-->
+                            <span class="d-flex flex-column">
+                              <span
+                                class="fw-bold text-gray-800 text-hover-primary fs-5"
+                                >Fauji</span
+                              >
+                              <!-- <span class="fs-6 fw-semibold text-muted">Use images to enhance time travel rivers</span> -->
+                            </span>
+                            <!--end:Description-->
+                          </span>
+                          <!--end:Label-->
+
+                          <!--begin:Input-->
+                          <span
+                            class="form-check form-check-custom form-check-solid"
+                          >
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="account_plan"
+                              value="3"
+                            />
+                          </span>
+                          <!--end:Input-->
+                        </label>
+                        <!--end::Option-->
+                        <!--begin:Option-->
+                        <label class="d-flex flex-stack mb-5 cursor-pointer">
+                          <!--begin:Label-->
+                          <span class="d-flex align-items-center me-2">
+                            <!--begin::Icon-->
+                            <span class="symbol symbol-50px me-6">
+                              <span class="symbol-label">
+                                <i
+                                  class="la la-truck-loading fs-1 text-gray-600"
+                                  ><span class="path1"></span
+                                  ><span class="path2"></span
+                                  ><span class="path3"></span
+                                ></i>
+                              </span>
+                            </span>
+                            <!--end::Icon-->
+
+                            <!--begin::Description-->
+                            <span class="d-flex flex-column">
+                              <span
+                                class="fw-bold text-gray-800 text-hover-primary fs-5"
+                                >Exporter</span
+                              >
+                              <!-- <span class="fs-6 fw-semibold text-muted">Use images to enhance time travel rivers</span> -->
+                            </span>
+                            <!--end:Description-->
+                          </span>
+                          <!--end:Label-->
+
+                          <!--begin:Input-->
+                          <span
+                            class="form-check form-check-custom form-check-solid"
+                          >
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="account_plan"
+                              value="3"
+                            />
+                          </span>
+                          <!--end:Input-->
+                        </label>
+                        <!--end::Option-->
+                        <!--begin:Option-->
+                        <label class="d-flex flex-stack mb-5 cursor-pointer">
+                          <!--begin:Label-->
+                          <span class="d-flex align-items-center me-2">
+                            <!--begin::Icon-->
+                            <span class="symbol symbol-50px me-6">
+                              <span class="symbol-label">
+                                <i class="la la-user fs-1 text-gray-600"
+                                  ><span class="path1"></span
+                                  ><span class="path2"></span
+                                  ><span class="path3"></span
+                                ></i>
+                              </span>
+                            </span>
+                            <!--end::Icon-->
+
+                            <!--begin::Description-->
+                            <span class="d-flex flex-column">
+                              <span
+                                class="fw-bold text-gray-800 text-hover-primary fs-5"
+                                >Others</span
+                              >
+                              <!-- <span class="fs-6 fw-semibold text-muted">Use images to enhance time travel rivers</span> -->
+                            </span>
+                            <!--end:Description-->
+                          </span>
+                          <!--end:Label-->
+
+                          <!--begin:Input-->
+                          <span
+                            class="form-check form-check-custom form-check-solid"
+                          >
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="account_plan"
+                              value="3"
+                            />
+                          </span>
+                          <!--end:Input-->
+                        </label>
+                        <!--end::Option-->
+                      </div>
+                      <!--end::Options-->
+                      <label class="fs-6 fw-semibold form-label required"
+                        >Other</label
+                      >
+                      <!--begin::Input-->
+                      <input
+                        name="business_email"
+                        class="form-control m-2"
+                        value=""
+                      />
+                      <!--end::Input-->
+                    </div>
+                    <!--end::Input group-->
+                  </div>
+                  <!--end::Wrapper-->
+                </div>
+                <!--end::Step 2-->
+
+                <!--begin::Step 3-->
+                <div class="" data-kt-stepper-element="content">
+                  <!--begin::Wrapper-->
+                  <div class="w-100">
+                    <!--begin::Heading-->
+                    <div class="pb-10 pb-lg-12">
+                      <!--begin::Title-->
+                      <h2 class="fw-bold text-dark">Categories</h2>
+                      <!--end::Title-->
+                      <br />
+                      <!--begin::Row-->
+                      <div class="row mb-2 col-12" data-kt-buttons="true">
+                        <!--begin::Col-->
+                        <div class="col-4 m-2">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              value="1-1"
+                            />
+                            <span class="fw-bold fs-3">General Guidance</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+
+                        <!--begin::Col-->
+                        <div class="col-3 m-2">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4 active"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              checked
+                              value="2-10"
+                            />
+                            <span class="fw-bold fs-3">Grow new Crops</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+
+                        <!--begin::Col-->
+                        <div class="col-4">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              value="10-50"
+                            />
+                            <span class="fw-bold fs-3">Grow Organic Crops</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+
+                        <!--begin::Col-->
+                        <div class="col">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              value="50+"
+                            />
+                            <span class="fw-bold fs-3">Animal Husbandry</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+
+                        <!--begin::Col-->
+                        <div class="col-5 m-2">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              value="50+"
+                            />
+                            <span class="fw-bold fs-3"
+                              >Developing food processing unit</span
+                            >
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+                        <!--begin::Col-->
+                        <div class="col m-2">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              value="50+"
+                            />
+                            <span class="fw-bold fs-3">Dairy</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+                        <!--begin::Col-->
+                        <div class="col m-2">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              value="50+"
+                            />
+                            <span class="fw-bold fs-3">Others</span>
+                          </label>
+
+                          <label class="fs-6 fw-semibold form-label required"
+                            >Other</label
+                          >
+                          <!--begin::Input-->
+                          <input
+                            name="business_email"
+                            class="form-control m-2"
+                            value=""
+                          />
+                          <!--end::Input-->
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+                      </div>
+                      <!--end::Row-->
+                    </div>
+                    <!--end::Heading-->
+
+                    <!--begin::Input group-->
+                    <div class="fv-row mb-0">
+                      <!--begin::Label-->
+                      <label class="fs-6 fw-semibold form-label required"
+                        >Area Available</label
+                      >
+                      <!--end::Label-->
+
+                      <!--begin::Input-->
+                      <input
+                        name="business_email"
+                        class="form-control form-control-lg form-control-solid"
+                      />
+                      <!--end::Input-->
+                    </div>
+                    <!--end::Input group-->
+                    <br />
+                    <!--begin::Input group-->
+                    <div class="fv-row mb-10">
+                      <!--begin::Label-->
+                      <label class="form-label required">Select Scale</label>
+                      <!--end::Label-->
+
+                      <!--begin::Input-->
+                      <select
+                        name="business_type"
+                        class="form-select form-select-lg form-select-solid"
+                        data-control="select2"
+                        data-placeholder="Select..."
+                        data-allow-clear="true"
+                        data-hide-search="true"
+                      >
+                        <option></option>
+                        <option value="1">Square meter</option>
+                        <option value="1">Acre</option>
+                        <option value="2">Hectare</option>
+                        <option value="3">Gaj</option>
+                        <option value="4">Kanal</option>
+                        <option value="5">Bigha</option>
+                        <option value="1">Biswa</option>
+                        <option value="1">Killa</option>
+                        <option value="2">Lessa</option>
+                        <option value="3">Dhur</option>
+                        <option value="4">Pura</option>
+                        <option value="5">Chatak</option>
+                        <option value="5">Marla</option>
+                        <option value="1">Square Yard</option>
+                        <option value="1">Katha</option>
+                        <option value="2">Ground</option>
+                        <option value="3">Cent</option>
+                        <option value="4">Guntha</option>
+                        <option value="5">Karam</option>
+                      </select>
+                      <!--end::Input-->
+                    </div>
+                    <!--end::Input group-->
+
+                    <!--begin::Input group-->
+                    <div class="fv-row mb-10">
+                      <!--end::Label-->
+                      <label class="form-label">Present Utilization</label>
+                      <!--end::Label-->
+                      <!--begin::Input-->
+                      <input
+                        name="business_email"
+                        class="form-control form-control-lg form-control-solid"
+                      />
+                      <!--end::Input-->
+                    </div>
+                    <!--end::Input group-->
+
+                    <!--end::Label-->
+                    <label class="form-label">Query Description</label>
+                    <!--end::Label-->
+
+                    <!--begin::Input-->
+                    <textarea
+                      name="business_description"
+                      class="form-control form-control-lg form-control-solid"
+                      rows="3"
+                    ></textarea>
+                    <!--end::Input-->
+                  </div>
+                  <!--end::Wrapper-->
+                </div>
+                <!--end::Step 3-->
+
+                <!--begin::Step 5-->
+                <div class="" data-kt-stepper-element="content d-none">
+                  <!--begin::Wrapper-->
+                  <div class="w-100 d-none">
+                    <!--begin::Heading-->
+                    <div class="pb-8 pb-lg-10">
+                      <!--begin::Title-->
+                      <h2 class="fw-bold text-dark">Your Are Done!</h2>
+                      <!--end::Title-->
+
+                      <!--begin::Notice-->
+                      <div class="text-muted fw-semibold fs-6">
+                        If you need more info, please
+                        <a href="" class="link-primary fw-bold"> Sign In </a>
+                        .
+                      </div>
+                      <!--end::Notice-->
+                    </div>
+                    <!--end::Heading-->
+
+                    <!--begin::Body-->
+                    <div class="mb-0">
+                      <!--begin::Text-->
+                      <div class="fs-6 text-gray-600 mb-5">
+                        Writing headlines for blog posts is as much an art as it
+                        is a science and probably warrants its own post, but for
+                        all advise is with what works for your great & amazing
+                        audience.
+                      </div>
+                      <!--end::Text-->
+
+                      <!--begin::Alert-->
+
+                      <!--begin::Notice-->
+                      <div
+                        class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6"
+                      >
+                        <!--begin::Icon-->
+                        <i
+                          class="ki-duotone ki-information fs-2tx text-warning me-4"
+                          ><span class="path1"></span><span class="path2"></span
+                          ><span class="path3"></span
+                        ></i>
+                        <!--end::Icon-->
+
+                        <!--begin::Wrapper-->
+                        <div class="d-flex flex-stack flex-grow-1">
+                          <!--begin::Content-->
+                          <div class="fw-semibold">
+                            <h4 class="text-gray-900 fw-bold">
+                              We need your attention!
+                            </h4>
+
+                            <div class="fs-6 text-gray-700">
+                              To start using great tools, please,
+                              <a
+                                href="https://preview.keenthemes.com/metronic8/demo1/utilities/wizards/vertical.html"
+                                class="fw-bold"
+                                >Create Team Platform</a
+                              >
+                            </div>
+                          </div>
+                          <!--end::Content-->
+                        </div>
+                        <!--end::Wrapper-->
+                      </div>
+                      <!--end::Notice-->
+                      <!--end::Alert-->
+                    </div>
+                    <!--end::Body-->
+                  </div>
+                  <!--end::Wrapper-->
+                </div>
+                <!--end::Step 5-->
+
+                <!--begin::Actions-->
+                <div class="d-flex flex-stack m-3">
+                  <div class="mr-2">
+                    <button
+                      type="button"
+                      class="btn btn-lg btn-light-primary me-3"
+                      data-kt-stepper-action="previous"
+                    >
+                      <i class="ki-duotone ki-arrow-left fs-4 me-1"
+                        ><span class="path1"></span><span class="path2"></span
+                      ></i>
+                      Previous
+                    </button>
+                  </div>
+
+                  <div>
+                    <button
+                      type="button"
+                      class="btn btn-lg btn-primary"
+                      data-kt-stepper-action="submit"
+                    >
+                      <span class="indicator-label">
+                        Submit
+                        <i class="ki-duotone ki-arrow-right fs-4 ms-2"
+                          ><span class="path1"></span><span class="path2"></span
+                        ></i>
+                      </span>
+                      <span class="indicator-progress">
+                        Please wait...
+                        <span
+                          class="spinner-border spinner-border-sm align-middle ms-2"
+                        ></span>
+                      </span>
+                    </button>
+
+                    <button
+                      type="button"
+                      class="btn btn-lg btn-primary"
+                      data-kt-stepper-action="next"
+                    >
+                      Continue
+                      <i class="ki-duotone ki-arrow-right fs-4 ms-1"
+                        ><span class="path1"></span><span class="path2"></span
+                      ></i>
+                    </button>
+                  </div>
+                </div>
+                <!--end::Actions-->
+              </form>
+              <!--end::Form-->
+            </div>
+            <!--end::Wrapper-->
+          </div>
+          <!--end::Content-->
+        </div>
+        <!--end::Body-->
+      </div>
+      <!--end::Authentication - Multi-steps-->
+
+      <div class="modal bg-body fade" tabindex="-1" id="kt_modal_2">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content shadow-none">
+            <div class="modal-header">
+              <h5 class="modal-title">Select location of your land</h5>
+
+              <!--begin::Close-->
+              <div
+                class="btn btn-icon btn-sm btn-active-light-primary ms-2"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                <i class="ki-duotone ki-cross fs-2x"
+                  ><span class="path1"></span><span class="path2"></span
+                ></i>
+              </div>
+              <!--end::Close-->
+            </div>
+
+            <div class="modal-body">
+              <div id="map" class="h-100 w-100"></div>
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-light"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary" id="save">
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end::Root-->
+
+    <!--begin::Javascript-->
+    <script>
+    </script>
+
+    <!--begin::Global Javascript Bundle(mandatory for all pages)-->
+    <script src="/static/assets/plugins/global/plugins.bundle.js"></script>
+    <script src="/static/assets/js/scripts.bundle.js"></script>
+    <!--end::Global Javascript Bundle-->
+
+    <!--begin::Custom Javascript(used for this page only)-->
+    <script src="/static/assets/js/custom/utilities/modals/create-account.js"></script>
+    <!--end::Custom Javascript-->
+    <script>
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoiYWRpdHlhLTI0MDciLCJhIjoiY2xnZTN0dzltMXpnZDNjbzZ4NzB6dmk3aCJ9.q4IjsdbmlecZ52yeEXY2MQ";
+
+      const initialStyle = "mapbox://styles/mapbox/streets-v12";
+      let currentStyle = initialStyle;
+
+      const map = new mapboxgl.Map({
+        container: "map",
+        style: initialStyle,
+        center: [78.9629, 20.5937],
+        zoom: 5,
+      });
+
+      const marker = new mapboxgl.Marker({ color: "#FF8C00" })
+        .setLngLat([78.9629, 20.5937])
+        .setPopup(
+          new mapboxgl.Popup().setHTML(
+            "<h3>Current Location</h3><p>Longitude: " +
+              78.9629 +
+              "<br />Latitude: " +
+              20.5937 +
+              "</p>"
+          )
+        )
+        .addTo(map);
+
+      const geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+        marker: false,
+        placeholder: "Search for places in India",
+        proximity: {
+          longitude: 78.9629,
+          latitude: 20.5937,
+        },
+      });
+
+      map.addControl(geocoder);
+
+      map.on("load", () => {
+        map.addSource("single-point", {
+          type: "geojson",
+          data: {
+            type: "FeatureCollection",
+            features: [],
+          },
+        });
+
+        map.addLayer({
+          id: "point",
+          source: "single-point",
+          type: "circle",
+          paint: {
+            "circle-radius": 10,
+            "circle-color": "#448ee4",
+          },
+        });
+
+        let selectedLocation;
+        let currentLocationName;
+        let currentLocationCoordinates;
+
+        map.on("click", async (event) => {
+          const lngLat = event.lngLat;
+
+          // Get the address information of the clicked location
+          const response = await fetch(
+            `https://api.mapbox.com/geocoding/v5/mapbox.places/${lngLat.lng},${lngLat.lat}.json?access_token=${mapboxgl.accessToken}`
+          );
+          const data = await response.json();
+          const locationName = data.features[0].place_name;
+          currentLocationName = locationName;
+          currentLocationCoordinates = [lngLat.lng, lngLat.lat];
+          // Update the marker position and tooltip to the clicked location with location name and coordinates
+          marker
+            .setLngLat([lngLat.lng, lngLat.lat])
+            .setPopup(
+              new mapboxgl.Popup().setHTML(`
+      <p><strong>Location:</strong> ${locationName}</p>
+      <p><strong>Coordinates:</strong> ${lngLat.lng.toFixed(
+        4
+      )}, ${lngLat.lat.toFixed(4)}</p>
+    `)
+            )
+            .addTo(map);
+
+          // Update the "single-point" source to the clicked location
+          map.getSource("single-point").setData({
+            type: "Feature",
+            geometry: {
+              type: "Point",
+              coordinates: [lngLat.lng, lngLat.lat],
+            },
+            properties: {},
+          });
+
+          // Store the selected location
+          selectedLocation = lngLat;
+        });
+
+        // Repopulate the selected location
+        if (selectedLocation) {
+          marker
+            .setLngLat([selectedLocation.lng, selectedLocation.lat])
+            .addTo(map);
+
+          map.getSource("single-point").setData({
+            type: "Feature",
+            geometry: {
+              type: "Point",
+              coordinates: [selectedLocation.lng, selectedLocation.lat],
+            },
+            properties: {},
+          });
+        }
+
+        geocoder.on("result", (event) => {
+          const result = event.result;
+          map.getSource("single-point").setData(result.geometry);
+          map.flyTo({ center: result.center });
+        });
+
+        const saveButton = document.getElementById("save");
+
+        saveButton.addEventListener("click", () => {
+          const selectedLocation = {
+            name: currentLocationName,
+            coordinates: currentLocationCoordinates,
+          };
+
+          Swal.fire({
+            title: "Confirm Location",
+            html: `Do you want to save <strong>${selectedLocation.name}</strong> (${selectedLocation.coordinates[0]}, ${selectedLocation.coordinates[1]}) as your current location?`,
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, save it!",
+            cancelButtonText: "No, cancel!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // User clicked the "Yes, save it!" button
+              // Perform save operation here
+              const modal = document.getElementById("kt_modal_2");
+              const modalInstance = bootstrap.Modal.getInstance(modal);
+              modalInstance.hide();
+              Swal.fire("Saved!", "Your location has been saved.", "success");
+              const selectedLocation = {
+                name: currentLocationName,
+                coordinates: currentLocationCoordinates,
+              };
+              if (selectedLocation) {
+                selectedMap.flyTo({
+                  center: [
+                    selectedLocation.coordinates[0],
+                    selectedLocation.coordinates[1],
+                  ],
+                  zoom: 12,
+                });
+
+                addSelectedMarker([
+                  selectedLocation.coordinates[0],
+                  selectedLocation.coordinates[1],
+                ]);
+              } else {
+                console.log("No location selected");
+              }
+            }
+          });
+        });
+
+        // geocoder.on("result", (event) => {
+        //   map.getSource("single-point").setData(event.result.geometry);
+        // });
+      });
+
+      // Add functionality to toggle between different map styles
+      const styleToggle = document.getElementById("style-toggle");
+      const styles = [
+        "streets-v12",
+        "outdoors-v11",
+        "light-v10",
+        "dark-v10",
+        "satellite-v9",
+        "satellite-streets-v11",
+      ];
+
+      styleToggle.addEventListener("change", (e) => {
+        const newStyle =
+          "mapbox://styles/mapbox/" + styles[e.target.selectedIndex];
+        if (newStyle !== currentStyle) {
+          map.setStyle(newStyle);
+          currentStyle = newStyle;
+        }
+      });
+
+      // Add zoom in and out functionality
+      map.addControl(new mapboxgl.NavigationControl());
+    </script>
+    <script>
+      // Second Map
+      const selectedMap = new mapboxgl.Map({
+        container: "selected-map",
+        style: "mapbox://styles/mapbox/streets-v12",
+        center: [78.9629, 20.5937],
+        zoom: 5,
+      });
+
+      let selectedMarker = null;
+
+      // Add a function to add marker to the second map
+      function addSelectedMarker(lngLat) {
+        if (selectedMarker) {
+          selectedMarker.remove();
+        }
+
+        selectedMarker = new mapboxgl.Marker()
+          .setLngLat(lngLat)
+          .addTo(selectedMap);
+      }
+    </script>
+    <!-- <script>
+      const el = document.createElement("div");
+      el.className = "marker";
+      el.title = "Current location";
+      el.innerHTML = "You are here";
+
+      const marker = new mapboxgl.Marker({ element: el })
+        .setLngLat([78.9629, 20.5937])
+        .addTo(map);
+
+      marker.getElement().addEventListener("click", () => {
+        alert(`Current location: ${marker.getLngLat().toString()}`);
+      });
+
+      map.addLayer({
+        id: "point",
+        type: "symbol",
+        source: "single-point",
+        layout: {
+          "icon-image": "marker-15",
+          "icon-allow-overlap": true,
+          "icon-size": 1.5,
+          "text-field": "{coordinates}",
+          "text-font": ["Open Sans Regular"],
+          "text-offset": [0, 0.6],
+          "text-anchor": "top",
+          "text-size": 12,
+        },
+        paint: {
+          "text-color": "#000000",
+          "text-halo-color": "#ffffff",
+          "text-halo-width": 2,
+        },
+      });
+    </script> -->
+    <!--end::Javascript-->
+  </body>
+  <!--end::Body-->
+</html>

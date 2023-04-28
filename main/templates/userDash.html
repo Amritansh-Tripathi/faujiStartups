@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+
+	<meta charset="UTF-8">
+	<title> Fauji Startups</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<meta name="description" content="" />
+
+	<link href="/static/assets/css/main5883.css" rel="stylesheet" type="text/css">
+	<link href="/static/assets/css/style5883.css" rel="stylesheet" type="text/css">
+	<link href="/static/assets/plugins/highlight.js/styles/railscasts.css" rel="stylesheet" type="text/css">
+	<script src="/static/assets/js/main.bundle5883.js" type="application/javascript"></script>
+	<script src="/static/assets/js/demo_like5883.js" type="application/javascript"></script>
+	<script src="/static/assets/plugins/highlight.js/lib/highlight.js"></script>
+	<script src="/static/assets/plugins/highlight.js/build/highlight.pack.js" type="application/javascript"></script>
+	<script src="/static/assets/js/docs5883.js" type="application/javascript"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
+
+    <!--begin::Fonts(mandatory for all pages)-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+    <!--end::Fonts-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--begin::Vendor Stylesheets(used for this page only)-->
+    <link href="/static/assets/plugins/custom/leaflet/leaflet.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="/static/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+    <!--end::Vendor Stylesheets-->
+
+
+    <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
+    <link href="/static/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="/static/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <!--end::Global Stylesheets Bundle-->
+
+
+	<link rel="shortcut icon" href="/static/assets/media/custom-1.png" />
+	<!--begin::Fonts(mandatory for all pages)-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+	<!--end::Fonts-->
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css"
+		integrity="sha512-vebUliqxrVkBy3gucMhClmyQP9On/HAWQdKDXRaAlb/FKuTbxkjPKUyqVOxAcGwFDka79eTF+YXwfke1h3/wfg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!--begin::Vendor Stylesheets(used for this page only)-->
+	<link href="/static/assets/plugins/custom/leaflet/leaflet.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="/static/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+	<!--end::Vendor Stylesheets-->
+
+
+	<!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
+	<link href="/static/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="/static/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+	<!--end::Global Stylesheets Bundle-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style>
+		.btn-primary {
+			color: #ffffff;
+			background-color: #005c29;
+			border-color: #005c29;
+			box-shadow: none;
+		}
+
+		.btn-primary:hover {
+			color: #ffffff;
+			background-color: #62d295;
+			border-color: #62d295;
+		}
+
+		#map-canvas {
+			--bs-gutter-x: 1.5rem;
+			--bs-gutter-y: 0;
+			width: 100%;
+			padding-right: calc(var(--bs-gutter-x) * 0.5);
+			padding-left: calc(var(--bs-gutter-x) * 0.5);
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		#map-canvas {
+			width: 100%;
+			max-width: 900px;
+			max-height: 500px;
+			height: 0;
+			margin: auto;
+			padding-bottom: 90%;
+			overflow: hidden;
+			position: relative;
+			border: 1px solid #000;
+		}
+
+		@media (min-width: 576px) {
+			#map-canvas {
+				max-width: 540px;
+			}
+		}
+
+		@media (min-width: 768px) {
+			#map-canvas {
+				max-width: 720px;
+			}
+		}
+
+		@media (min-width: 992px) {
+			#map-canvas {
+				max-width: 960px;
+			}
+		}
+
+		@media (min-width: 1200px) {
+			#map-canvas {
+				max-width: 1140px;
+			}
+		}
+
+		@media (min-width: 1400px) {
+			#map-canvas {
+				max-width: 1320px;
+			}
+		}
+
+		#map-canvas>div {
+			height: 100%;
+			width: 100%;
+			left: 0;
+			top: 0;
+			position: relative;
+		}
+
+		.city-list {
+			width: 100%;
+			max-width: 900px;
+			margin: 20px auto 0;
+			-moz-columns: 180px;
+			columns: 180px;
+			-moz-column-gap: 20px;
+			column-gap: 20px;
+			-moz-column-rule: 1px dotted #ddd;
+			column-rule: 1px dotted #ddd;
+		}
+
+		.city-list a {
+			display: inline-block;
+			width: 100%;
+			margin: 1%;
+			padding: 5px;
+			background: rgba(0, 0, 0, 0.05);
+		}
+
+		.city-list a:hover {
+			background: #ccc;
+		}
+	</style>
+
+
+</head>
+
+<body class="header-enabled header-inverse" onload="UserDetails();">
+
+	<!--begin::Wrapper-->
+	<div class="wrapper">
+
+
+		<section class="subheader bgi-size-cover bg-transparent bgi-position-x-center bgi-position-y-bottom"
+			style="background-image:url('assets/images/header_bg.jpg')">
+			<header id="site_header" class="header header-inner">
+				<div class="container d-flex justify-content-between align-items-stretch">
+					<div class="d-flex align-items-center">
+						<a href="" class="header-brand mr-3 mr-lg-25">
+							<img alt="logo" src="assets/images/logos/logo-full.svg" class="logo-default h-70px">
+							<img alt="logo" src="/static/assets/media/custom-1.png" class="logo-white h-70px">
+						</a>
+					</div>
+					<div class="d-flex justify-content-end flex-lg-grow-1 align-items-stretch">
+						<ul class="topbar d-flex align-items-stretch">
+							<li class="topbar-wrapper d-flex justify-items-space-between gap-2">
+
+								<div class="topbar-item">
+
+									<a href="/"> <button class="btn btn-lg font-weight-bolder "
+											style="color: #ddd;background-color: #005c29;">Home</button>
+									</a>
+								</div>
+
+								<div class="topbar-item">
+
+									<a href="/"> <button class="btn btn-lg font-weight-bolder "
+											style="color: #ddd;background-color: #005c29;" onclick="logout();">Log Out</button>
+									</a>
+								</div>
+
+							</li>
+						</ul>
+					</div>
+				</div>
+			</header>
+
+			<header  class="header header-inner">
+				<div class="container d-flex justify-content-between align-items-stretch">
+					<div class="d-flex align-items-center">
+						<a href="/"
+										class="text-dark font-weight-bolder px-5 ">
+										<span class="text-dark">User Dashboard</span>
+									</a>
+					</div>
+					<div class="d-flex justify-content-end flex-lg-grow-1 align-items-stretch">
+						<ul class="topbar d-flex align-items-stretch">
+							<li class="topbar-wrapper d-flex justify-items-space-between gap-2">
+
+								<div class="topbar-item">
+
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</header>
+
+		</section>
+		<div class="container ">
+			<div class="card m-5 row bg-white border-0 shadow rounded-lg">
+				<div class="card-body  row  col-12 pt-9 pb-0">
+					<!--begin::Details-->
+
+					<!--begin::Image-->
+					<div class="container-fluid col-lg-6 col-md-6 col-sm-12 m-5">
+<!--
+						<div class="container-fluid" id="map-canvas"></div> -->
+
+
+
+					</div>
+					<!--end::Image-->
+
+					<!--begin::Wrapper-->
+					<div class="container-fluid col-lg-12 col-md-5 col-sm-12 ">
+						<!--begin::Head-->
+						<!--begin::Form-->
+						<form class="my-auto pb-5" novalidate="novalidate" id="kt_create_account_form">
+							<!--begin::Step 1-->
+							<div class="current" data-kt-stepper-element="content">
+								<!--begin::Wrapper-->
+								<div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
+									<!--begin::Details-->
+									<div class=" row col-12">
+										<!--begin::Status-->
+										<div class="d-flex border border-dashed align-items-center mb-1 col-6 m-5 rounded-1" style="box-shadow: #000;">
+											<div class="btn-group btn-lg ">
+												<button class="btn shadow-lg font-weight-bold col-12 btn-lg" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													<h1 class=" display-5" id="role">Farmer </h1> &ensp; <span class="fa fa-bars">
+
+													</span>
+												</button>
+												<div class="dropdown-menu">
+													<ul id="roles">
+														<li class="btn font-weight-bold ">Fauji</li>
+														<li class="btn  font-weight-bold ">Exporter</li>
+													</ul>
+												</div>
+											</div>
+											<!-- <span class="badge badge-light-success me-auto">In
+											Progress</span> -->
+										</div>
+										<!--end::Status-->
+													<!--begin::Stat-->
+													<div class=" rounded min-w-125px py-3 px-4 me-6 mb-3 col-2 m-5">
+														<!--begin::Number-->
+														<div class="d-flex align-items-center">
+															<!--begin::Svg Icon | path: icons/duotune/arrows/arr065.svg-->
+															<span class="svg-icon svg-icon-3 svg-icon-danger me-2 fa fa-user-friends">
+															</span>
+															<!--end::Svg Icon-->
+															<div class="fs-4 fw-bold counted" data-kt-countup="true"
+																data-kt-countup-value="75" data-kt-initialized="1" id="total_user"> &ensp; 75</div>
+														</div>
+														<!--end::Number-->
+
+														<!--begin::Label-->
+														<div class="fw-semibold fs-6 text-gray-400">Total Register Users</div>
+														<!--end::Label-->
+													</div>
+													<!--end::Stat-->
+														<!--begin::Stat-->
+										<div class=" rounded min-w-125px py-3 px-4 me-6 mb-3 col-2 m-5">
+											<!--begin::Number-->
+											<div class="d-flex align-items-center">
+												<!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
+												<span class="svg-icon svg-icon-3 svg-icon-success me-2 fa fa-language">
+												</span>
+												<!--end::Svg Icon-->
+												<div class="fs-4 fw-bold counted" data-kt-countup="true"
+													data-kt-countup-value="15000" data-kt-countup-prefix="$"
+													data-kt-initialized="1" id="Language"> &ensp; English</div>
+											</div>
+											<!--end::Number-->
+
+											<!--begin::Label-->
+											<div class="fw-semibold fs-6 text-gray-400 ">Language
+											</div>
+											<!--end::Label-->
+										</div>
+										<!--end::Stat-->
+
+										<!--begin::Description-->
+										<!-- <div
+										class="d-flex flex-wrap fw-semibold mb-4 fs-5 text-gray-400">
+										#1 Tool to get started with Web Apps any Kind & size
+									</div> -->
+										<!--end::Description-->
+									</div>
+									<!--end::Details-->
+
+
+
+
+								</div>
+								<!--end::Head-->
+
+
+
+
+
+							</div>
+						</form>
+					</div>
+					<!--end::Wrapper-->
+				</div>
+				<!--end::Details-->
+
+				<div class="separator"></div>
+
+
+			</div>
+		</div>
+	</div>
+	<!--begin Section -->
+	<section class="container " style="margin-bottom: 7%;">
+		<div class="row">
+			<div id="demo_like_data" data-theme="metronic" data-ip="122.161.83.222"></div>
+			<div class="col-lg-6 col-xl-6 text-center">
+				<div class="card border-0 shadow mb-12 mx-2">
+
+					<div class="card-body h-550px">
+						<div class="card-title">
+							<h2>Raise Query</h2>
+						</div>
+					  <!--begin::Input group-->
+    <div class="fv-row col-12 mb-10">
+
+
+        <!--begin::Input-->
+        <textarea name="business_description" class="form-control form-control-lg form-control-solid h-200px" rows="3" id="userQuery"></textarea>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+	<div class="d-flex flex-stack text-white justify-content-end m-3 ">
+		<!-- <h3>Click to Submit Queries
+
+		</h3> -->
+
+		<button type="button" class="btn " style="color: white;background-color: #005c29;" onclick="SubmitQuerry();">
+			Submit
+		</button>
+	</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 col-xl-6 text-center">
+				<div class="card shadow-lg card-flush pt-3 mb-5 mb-xl-10">
+					<!--begin::Card header-->
+					<div class="card-header">
+						<!--begin::Card title-->
+						<div class="card-title">
+							<h2>History</h2>
+						</div>
+						<!--end::Card title-->
+
+						<!--begin::Toolbar-->
+						<div class="card-toolbar">
+							<!--begin::Tab nav-->
+
+							<!--end::Tab nav-->
+						</div>
+						<!--end::Toolbar-->
+					</div>
+					<!--end::Card header-->
+
+					<!--begin::Card body-->
+					<div class="card-body pt-2">
+						<!--begin::Tab Content-->
+						<div id="kt_referred_users_tab_content" class="tab-content">
+							<!--begin::Tab panel-->
+							<div id="kt_customer_details_invoices_1" class="tab-pane fade show active" role="tabpanel"
+								aria-labelledby="#kt_referrals_year_tab">
+								<!--begin::Table wrapper-->
+								<div class="table-responsive">
+									<!--begin::Table-->
+									<table id="kt_customer_details_invoices_table_1"
+										class="table align-middle table-row-dashed fs-6 fw-bold gs-0 gy-4 p-0 m-0">
+										<!--begin::Thead-->
+										<thead class="border-bottom border-gray-200 fs-7 text-uppercase fw-bold">
+											<tr class="text-start text-gray-400">
+												<th class="min-w-100px">Querry No.</th>
+												<th class="min-w-100px">Description</th>
+												<th class="min-w-125px">Date</th>
+												<th class="w-100px">Status</th>
+											</tr>
+										</thead>
+										<!--end::Thead-->
+
+										<!--begin::Tbody-->
+										<tbody class="fs-6 fw-semibold text-gray-600" id="history">
+											
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">423445721</a>
+												</td>
+												<td class="text-danger">$-2.60</td>
+												<td><span class="badge badge-light-info">In progress</span></td>
+												<td>Oct 24, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+												</td>
+												<td class="text-success">$76.00</td>
+												<td><span class="badge badge-light-warning">Pending</span></td>
+												<td>Oct 08, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+												</td>
+												<td class="text-success">$5.00</td>
+												<td><span class="badge badge-light-success">Approved</span></td>
+												<td>Sep 15, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">523445943</a>
+												</td>
+												<td class="text-danger">$-1.30</td>
+												<td><span class="badge badge-light-success">Approved</span></td>
+												<td>May 30, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+										</tbody>
+										<!--end::Tbody-->
+									</table>
+									<!--end::Table-->
+								</div>
+								<!--end::Table wrapper-->
+							</div>
+							<!--end::Tab panel-->
+							<!--begin::Tab panel-->
+							<div id="kt_customer_details_invoices_2" class="tab-pane fade " role="tabpanel"
+								aria-labelledby="#kt_referrals_2019_tab">
+								<!--begin::Table wrapper-->
+								<div class="table-responsive">
+									<!--begin::Table-->
+									<table id="kt_customer_details_invoices_table_2"
+										class="table align-middle table-row-dashed fs-6 fw-bold gs-0 gy-4 p-0 m-0">
+										<!--begin::Thead-->
+										<thead class="border-bottom border-gray-200 fs-7 text-uppercase fw-bold">
+											<tr class="text-start text-gray-400">
+												<th class="min-w-100px">Order ID</th>
+												<th class="min-w-100px">Amount</th>
+												<th class="min-w-100px">Status</th>
+												<th class="min-w-125px">Date</th>
+												<th class="w-100px">Invoice</th>
+											</tr>
+										</thead>
+										<!--end::Thead-->
+
+										<!--begin::Tbody-->
+										<tbody class="fs-6 fw-semibold text-gray-600">
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">523445943</a>
+												</td>
+												<td class="text-danger">$-1.30</td>
+												<td><span class="badge badge-light-info">In progress</span></td>
+												<td>May 30, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">231445943</a>
+												</td>
+												<td class="text-success">$204.00</td>
+												<td><span class="badge badge-light-success">Approved</span></td>
+												<td>Apr 22, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">426445943</a>
+												</td>
+												<td class="text-success">$31.00</td>
+												<td><span class="badge badge-light-info">In progress</span></td>
+												<td>Feb 09, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">984445943</a>
+												</td>
+												<td class="text-success">$52.00</td>
+												<td><span class="badge badge-light-info">In progress</span></td>
+												<td>Nov 01, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">324442313</a>
+												</td>
+												<td class="text-danger">$-0.80</td>
+												<td><span class="badge badge-light-danger">Rejected</span></td>
+												<td>Jan 04, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+										</tbody>
+										<!--end::Tbody-->
+									</table>
+									<!--end::Table-->
+								</div>
+								<!--end::Table wrapper-->
+							</div>
+							<!--end::Tab panel-->
+							<!--begin::Tab panel-->
+							<div id="kt_customer_details_invoices_3" class="tab-pane fade " role="tabpanel"
+								aria-labelledby="#kt_referrals_2018_tab">
+								<!--begin::Table wrapper-->
+								<div class="table-responsive">
+									<!--begin::Table-->
+									<table id="kt_customer_details_invoices_table_3"
+										class="table align-middle table-row-dashed fs-6 fw-bold gs-0 gy-4 p-0 m-0">
+										<!--begin::Thead-->
+										<thead class="border-bottom border-gray-200 fs-7 text-uppercase fw-bold">
+											<tr class="text-start text-gray-400">
+												<th class="min-w-100px">Order ID</th>
+												<th class="min-w-100px">Amount</th>
+												<th class="min-w-100px">Status</th>
+												<th class="min-w-125px">Date</th>
+												<th class="w-100px">Invoice</th>
+											</tr>
+										</thead>
+										<!--end::Thead-->
+
+										<!--begin::Tbody-->
+										<tbody class="fs-6 fw-semibold text-gray-600">
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">426445943</a>
+												</td>
+												<td class="text-success">$31.00</td>
+												<td><span class="badge badge-light-success">Approved</span></td>
+												<td>Feb 09, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">984445943</a>
+												</td>
+												<td class="text-success">$52.00</td>
+												<td><span class="badge badge-light-success">Approved</span></td>
+												<td>Nov 01, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">324442313</a>
+												</td>
+												<td class="text-danger">$-0.80</td>
+												<td><span class="badge badge-light-success">Approved</span></td>
+												<td>Jan 04, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+												</td>
+												<td class="text-success">$5.00</td>
+												<td><span class="badge badge-light-success">Approved</span></td>
+												<td>Sep 15, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">102445788</a>
+												</td>
+												<td class="text-success">$38.00</td>
+												<td><span class="badge badge-light-success">Approved</span></td>
+												<td>Nov 01, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+										</tbody>
+										<!--end::Tbody-->
+									</table>
+									<!--end::Table-->
+								</div>
+								<!--end::Table wrapper-->
+							</div>
+							<!--end::Tab panel-->
+							<!--begin::Tab panel-->
+							<div id="kt_customer_details_invoices_4" class="tab-pane fade " role="tabpanel"
+								aria-labelledby="#kt_referrals_2017_tab">
+								<!--begin::Table wrapper-->
+								<div class="table-responsive">
+									<!--begin::Table-->
+									<table id="kt_customer_details_invoices_table_4"
+										class="table align-middle table-row-dashed fs-6 fw-bold gs-0 gy-4 p-0 m-0">
+										<!--begin::Thead-->
+										<thead class="border-bottom border-gray-200 fs-7 text-uppercase fw-bold">
+											<tr class="text-start text-gray-400">
+												<th class="min-w-100px">Order ID</th>
+												<th class="min-w-100px">Amount</th>
+												<th class="min-w-100px">Status</th>
+												<th class="min-w-125px">Date</th>
+												<th class="w-100px">Invoice</th>
+											</tr>
+										</thead>
+										<!--end::Thead-->
+
+										<!--begin::Tbody-->
+										<tbody class="fs-6 fw-semibold text-gray-600">
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">102445788</a>
+												</td>
+												<td class="text-success">$38.00</td>
+												<td><span class="badge badge-light-info">In progress</span></td>
+												<td>Nov 01, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">423445721</a>
+												</td>
+												<td class="text-danger">$-2.60</td>
+												<td><span class="badge badge-light-danger">Rejected</span></td>
+												<td>Oct 24, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">102445788</a>
+												</td>
+												<td class="text-success">$38.00</td>
+												<td><span class="badge badge-light-warning">Pending</span></td>
+												<td>Nov 01, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">423445721</a>
+												</td>
+												<td class="text-danger">$-2.60</td>
+												<td><span class="badge badge-light-danger">Rejected</span></td>
+												<td>Oct 24, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">426445943</a>
+												</td>
+												<td class="text-success">$31.00</td>
+												<td><span class="badge badge-light-danger">Rejected</span></td>
+												<td>Feb 09, 2020</td>
+												<td class=""><button
+														class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+												</td>
+											</tr>
+										</tbody>
+										<!--end::Tbody-->
+									</table>
+									<!--end::Table-->
+								</div>
+								<!--end::Table wrapper-->
+							</div>
+							<!--end::Tab panel-->
+						</div>
+						<!--end::Tab Content-->
+					</div>
+					<!--end::Card body-->
+					<div class="row align-content-end justify-content-end m-5">
+						<div class="symbol symbol-60px symbol-circle me-3 m-3 col-1 d-none">
+							<a href=""><img alt="Pic" src="/static/assets/media/telegram.png"></a>
+						</div>
+						<div class="symbol symbol-60px symbol-circle me-3 m-3 col-1 d-none">
+							<a href=""><img alt="Pic" src="/static/assets/media/signal.png"></a>
+						</div>
+						<div class="symbol symbol-60px symbol-circle me-3 m-3 col-1">
+							<a href="https://wa.me/919910511007" target="_blank"><img alt="Pic" src="/static/assets/media/whatsapp.png"></a>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+
+
+
+
+
+		</div>
+		</div>
+	</section>
+	<!--end Section -->
+	<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+															<div class="modal-dialog modal-dialog-scrollable" role="document">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<h5 class="modal-title" id="exampleModalLabel">Answer The Query</h5>
+																		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																			<i aria-hidden="true" class="ki ki-close"></i>
+																		</button>
+																	</div>
+																	<div class="modal-body" style="height: 300px;">
+
+																		<div class="card-title">
+																			<h2>Query Description</h2>
+																		</div>
+																		<!--begin::Input-->
+<textarea  value="" class="form-control  h-150px" id="myTextarea"  disabled > </textarea>
+<!--end::Input-->
+																		<div class="card-title m-5">
+																			<h2>Answer</h2>
+																		</div>
+																	  <!--begin::Input group-->
+													<div class="fv-row col-12 mb-10">
+
+
+														<!--begin::Input-->
+														<textarea id="QueryAnswer" class="form-control form-control-lg form-control-solid h-150px" rows="3" disabled></textarea>
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+																	</div>
+																	<div class="modal-footer">
+																		<button type="button" class="btn btn-primary font-weight-bold" data-dismiss="modal">Close</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+	<footer class="footer block-dark mt-n15 mt-lg-n30">
+		<div class="h-50px  bgi-no-repeat bgi-position-x-center bgi-position-y-top bgi-size-cover dark-top-curved-bg">
+		</div>
+
+
+
+		<div style="border-top:1px solid #005c29"></div>
+
+		<div class="container py-5 py-lg-10">
+			<div
+				class="d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-between">
+				<div class="d-flex align-items-center mr-md-2 order-2 order-md-1">
+					<a href="" class="mr-3 mr-md-6">
+						<img alt="logo" src="/static/assets/media/custom-1.png" class="h-20px h-md-25px">
+					</a>
+
+					<span class="font-size-2 font-weight-bold text-dark-60 pt-1" href="">
+						&copy; 2023 faujistartups.com
+					</span>
+
+
+				</div>
+				<div class="dark-outline flex-center rounded-lg px-10 py-8 mr-lg-15 mb-7 ">
+
+					<div class="font-size-3 text-light">
+						developed by <a class="text-dark-60 text-hover-primary font-weight-bold"
+							href="https://iqueststar.com,blank">iQueststar Edutech Pvt. Ltd.</a>
+					</div>
+				</div>
+
+				<!-- <div class="d-flex align-items-center justify-content-center order-1 order-md-2 mb-5 mb-md-0">
+                <a href="https://keenthemes.com/support" target="_black" class="text-dark-50 text-hover-primary mr-8">Support</a>
+
+                <a href="https://preview.keenthemes.com/html/metronic/docs/" target="_black" class="text-dark-50 text-hover-primary mr-8">Docs</a>
+
+                <a href="https://themeforest.net/licenses/standard" target="_black" class="text-dark-50 text-hover-primary">Licenses</a>
+            </div> -->
+			</div>
+		</div>
+	</footer>
+	</div>
+	<!--end::Wrapper-->
+	</div>
+	<!--end::Wrapper-->
+
+	<!-- Start of LiveChat (www.livechat.com) code -->
+	<script>
+		window.__lc = window.__lc || {};
+		window.__lc.license = 14418225;;
+		(function (n, t, c) {
+			function i(n) {
+				return e._h ? e._h.apply(null, n) : e._q.push(n)
+			}
+			var e = {
+				_q: [],
+				_h: null,
+				_v: "2.0",
+				on: function () {
+					i(["on", c.call(arguments)])
+				},
+				once: function () {
+					i(["once", c.call(arguments)])
+				},
+				off: function () {
+					i(["off", c.call(arguments)])
+				},
+				get: function () {
+					if (!e._h) throw new Error("[LiveChatWidget] You can't use getters before load.");
+					return i(["get", c.call(arguments)])
+				},
+				call: function () {
+					i(["call", c.call(arguments)])
+				},
+				init: function () {
+					var n = t.createElement("script");
+					n.async = !0, n.type = "text/javascript", n.src = "../../cdn.livechatinc.com/tracking.js", t
+						.head.appendChild(n)
+				}
+			};
+			!n.__lc.asyncInit && e.init(), n.LiveChatWidget = n.LiveChatWidget || e
+		}(window, document, [].slice))
+	</script>
+	<noscript><a href="https://www.livechat.com/chat-with/14418225/" rel="nofollow">Chat with us</a>, powered by <a
+			href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+	<!-- End of LiveChat code -->
+
+	<!--begin::Custom Javascript(used for this page only)-->
+	<script src="/static/assets/js/custom/utilities/modals/create-account.js"></script>
+	<!--end::Custom Javascript-->
+	<script>
+	// Your code here
+	fetch('https://api.ipify.org?format=json')
+	.then(response => response.json())
+	.then(data => {
+		console.log(data.ip);
+		var payload={action:'Activity', ip:data.ip};
+		ajax(payload.action, payload);
+	})
+	.catch(error => {
+		console.error('Error getting IP address:', error);
+	});
+	console.log("Page loaded");
+		let roles=[];
+		let Language;
+		let query_des;
+		let history=[];
+	function UserDetails(){
+	var payload={action:'UserDetails'};
+	ajax(payload.action, payload);
+	}
+
+	function SubmitQuerry(){
+	query_des= document.getElementById('userQuery').value;
+	if(query_des.length<1){
+		Swal.fire('Please input you query first.');
+	}
+	else{
+		var payload={action:'PostQuery',query_des:query_des};
+	ajax(payload.action, payload);
+	}
+	}
+
+	function logout(){
+	var payload={action:'logout'};
+	ajax(payload.action, payload);
+	}
+
+	function modalAnswer(query,reply){
+	document.getElementById('myTextarea').value=query;
+	document.getElementById('QueryAnswer').value=reply;
+		document.getElementById('myTextarea').innerHTML=query;
+	document.getElementById('QueryAnswer').value=reply;
+	}
+
+		       //----------handle ajax----------
+      function ajax(action, payload) {
+        const xhr = new XMLHttpRequest();
+        xhr.responseType = "json";
+        xhr.open("POST", "/actions");
+        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        xhr.send(JSON.stringify(payload));
+        console.log(JSON.stringify(payload));
+        xhr.onload = function () {
+          const response = xhr.response;
+          console.log(response);
+          if (response.action == "UserDetails") {
+            if (response.Status == 100) {
+
+            }
+            else if (response.Status == 200) {
+            	console.log(response);
+				document.getElementById('Language').innerHTML= response.userdata.Language[0];
+				document.getElementById('role').innerHTML= `${response.userdata.Role}`;
+				document.getElementById('roles').innerHTML= `<li class="btn font-weight-bold ">${response.userdata.Role}</li>`;
+				
+				response.Queries.forEach(function(query) {
+					var date = new Date(query.Query_Raised* 1000);
+					let status;
+					if(query.Answered==false){
+					history.push(`<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">${query.Query_number}</a>
+												</td>
+												<td class="text-success">${query.Description}</td>
+												<td>${date.toLocaleString()}</td>
+												<td>
+												<button type="button" class="btn btn-primary" >Not answered</button>
+												</td>
+											</tr>`);
+					}
+					else{
+					history.push(`<tr>
+												<td><a href="#" class="text-gray-600 text-hover-primary">${query.Query_number}</a>
+												</td>
+												<td class="text-success">${query.Description}</td>
+												<td>${date.toLocaleString()}</td>
+												<td>
+												<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable" onclick="modalAnswer('${query.Description}','${query.Reply}');">View answer</button>
+												</td>
+											</tr>`);
+					}
+				});
+
+				document.getElementById('history').innerHTML= history.join('');
+
+				// Convert Unix timestamp to readable date and time format
+				
+            }
+          }
+		  if (response.action == "Activity") {
+            if (response.Status == 100) {
+
+            }
+            else if(response.Status == 200){
+            console.log(response);
+			document.getElementById('total_user').innerHTML= response.Data.tot_registration;
+			
+            }
+          }
+		  if(response.action =='PostQuery'){
+
+			if(response.Status == 100){
+				Swal.fire('Please submit your querry again');
+			}
+			else if(response.Status ==200){
+				Swal.fire("Thank you for raising the querry. We will get back to you soon. ");
+             			setTimeout(function() {location.reload();}, 5000);
+			}
+		  }
+		  if(response.action =='logout'){
+			if(response.Status == 100){
+				Swal.fire('Error logging out');
+			}
+			else if(response.Status ==200){
+				location.reload();
+				// Swal.fire("logged out successfully");
+				// setTimeout(, 3000);
+
+			}
+			}
+        }
+    }
+	</script>
+</body>
+
+</html>

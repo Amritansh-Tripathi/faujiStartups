@@ -1,0 +1,2712 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+  <!--begin::Head-->
+
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <head>
+    <title>Fauji Startups</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--begin::Fonts(mandatory for all pages)-->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700"
+    />
+    <!--end::Fonts-->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
+    <link
+      href="/static/assets/plugins/global/plugins.bundle.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="/static/assets/css/style.bundle.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!--end::Global Stylesheets Bundle-->
+
+    <script>
+      // Frame-busting to prevent site from being loaded within a frame without permission (click-jacking)
+      if (window.top != window.self) {
+        window.top.location.replace(window.self.location.href);
+      }
+    </script>
+  </head>
+  <!--end::Head-->
+
+  <!--begin::Body-->
+  <body id="kt_body" class="app-blank">
+	<div class="wrapper p-4">
+
+
+      <section class="subheader bgi-size-cover bg-transparent bgi-position-x-center bgi-position-y-bottom"
+        style="background-image:url('assets/images/header_bg.jpg')">
+        <header id="site_header" class="header header-inner">
+          <div class="container d-flex justify-content-between align-items-stretch">
+            <div class="d-flex align-items-center">
+              <a href="" class="header-brand mr-3 mr-lg-25">
+                <img alt="logo" src="/static/assets/media/custom-1.png" class="logo-white h-70px">
+              </a>
+            </div>
+            <div class="d-flex justify-content-end flex-lg-grow-1 align-items-stretch">
+              <ul class="topbar d-flex align-items-stretch">
+                <li class="topbar-wrapper d-flex justify-items-space-between gap-2">
+  
+                  <div class="topbar-item">
+  
+                    <a href="/"> <button class="btn btn-lg font-weight-bolder "
+                        style="color: #ddd;background-color: #005c29;">Home</button>
+                    </a>
+                  </div>
+  
+                  <div class="topbar-item">
+  
+                    <a href="/admin"> <button class="btn btn-lg font-weight-bolder "
+                        style="color: #ddd;background-color: #005c29;" >Admin</button>
+                    </a>
+                  </div>
+  
+                </li>
+              </ul>
+            </div>
+          </div>
+        </header>
+  
+        <header  class="header header-inner">
+          <div class="container d-flex justify-content-between align-items-stretch">
+            <div class="d-flex align-items-center">
+            
+            <div class="d-flex justify-content-end flex-lg-grow-1 align-items-stretch">
+              <ul class="topbar d-flex align-items-stretch">
+                <li class="topbar-wrapper d-flex justify-items-space-between gap-2">
+  
+                  <div class="topbar-item">
+  
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </header>
+  
+      </section>
+    </div>
+    <!--begin::Theme mode setup on page load-->
+    <script>
+      var defaultThemeMode = "light";
+      var themeMode;
+
+      if (document.documentElement) {
+        if (document.documentElement.hasAttribute("data-bs-theme-mode")) {
+          themeMode =
+            document.documentElement.getAttribute("data-bs-theme-mode");
+        } else {
+          if (localStorage.getItem("data-bs-theme") !== null) {
+            themeMode = localStorage.getItem("data-bs-theme");
+          } else {
+            themeMode = defaultThemeMode;
+          }
+        }
+
+        if (themeMode === "system") {
+          themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        }
+
+        document.documentElement.setAttribute("data-bs-theme", themeMode);
+      }
+    </script>
+    <!--end::Theme mode setup on page load-->
+
+    <!--begin::Root-->
+    <div
+      class="d-flex flex-column flex-root"
+      style="margin-left: 5px; margin-right: 5px"
+      id="kt_app_root"
+    >
+      <!--begin::Authentication - Multi-steps-->
+      <div
+        class="d-flex flex-column flex-lg-row flex-column-fluid stepper stepper-pills stepper-column stepper-multistep"
+        id="kt_create_account_stepper"
+      >
+        <!--begin::Body-->
+        <div class="d-flex flex-column flex-lg-row-fluid py-10">
+          <!--begin::Header-->
+          <div class="flex-center card">
+            <!--begin::Logo-->
+            <a href="/">
+              <img
+                alt="Logo"
+                src="/static/assets/media/custom-1.png"
+                height="150px"
+              />
+            </a>
+            <!--end::Logo-->
+          </div>
+          <!--end::Header-->
+
+          <!--begin::Content-->
+          <div class="d-flex flex-center flex-column flex-column-fluid">
+            <!--begin::Wrapper-->
+            <div class="w-lg-650px w-xl-700px p-10 p-lg-15 mx-auto shadow-lg">
+              <!--begin::Form-->
+              <form
+                class="my-auto pb-5"
+                novalidate="novalidate"
+                id="kt_create_account_form"
+              >
+                <!--begin::Step 1-->
+                <div class="current" data-kt-stepper-element="content">
+                  <!--begin::Wrapper-->
+                  <div class="w-100">
+                    <!--begin::Heading-->
+                    <div class="pb-10 pb-lg-15">
+                      <!--begin::Title-->
+                      <h2 class="fw-bold d-flex align-items-center text-dark">
+                        Register
+                        <span
+                          class="ms-1"
+                          data-bs-toggle="tooltip"
+                          title="Log in to your registered account"
+                        >
+                          <i
+                            class="ki-duotone ki-information-5 text-gray-500 fs-6"
+                            ><span class="path1"></span
+                            ><span class="path2"></span
+                            ><span class="path3"></span></i
+                        ></span>
+                      </h2>
+                      <!--end::Title-->
+
+                      <!--begin::Notice-->
+                      <div class="text-center fw-semibold fs-5 m-2">
+                        <span class="text-muted me-1">Already have an account? Login</span>
+
+                        <a
+                          href="/signin"
+                          class="link-primary fs-5 me-1"
+                          >Now</a
+                        >.
+                      </div>
+                      <!--end::Notice-->
+                    </div>
+                    <!--end::Heading-->
+
+                    <!--begin::Input group-->
+                    <div class="fv-row mb-8 col-12 row m-2">
+                      <!--begin::Label-->
+                      <label class="form-label required">Phone number</label>
+                      <!--end::Label-->
+
+                      <!--begin::Input-->
+                      <div class="input-group mb-5 form-control">
+                        <div class="input-group-prepend ">
+                          <select name="countrycode" id="countrySelect" class="form-control w-100px">
+                            <option value="+93">Afghanistan (+93)</option>
+                            <option value="+91" selected>India (+91)</option>
+                            <option value="+355">Albania (+355)</option>
+                            <option value="+213">Algeria (+213)</option>
+                            <option value="+1-684">American Samoa (+1-684)</option>
+                            <option value="+376">Andorra (+376)</option>
+                            <option value="+244">Angola (+244)</option>
+                            <option value="+1-264">Anguilla (+1-264)</option>
+                            <option value="+1-268">Antigua and Barbuda (+1-268)</option>
+                            <option value="+54">Argentina (+54)</option>
+                            <option value="+374">Armenia (+374)</option>
+                            <option value="+297">Aruba (+297)</option>
+                            <option value="+61">Australia (+61)</option>
+                            <option value="+43">Austria (+43)</option>
+                            <option value="+994">Azerbaijan (+994)</option>
+                            <option value="+1-242">Bahamas (+1-242)</option>
+                            <option value="+973">Bahrain (+973)</option>
+                            <option value="+880">Bangladesh (+880)</option>
+                            <option value="+1-246">Barbados (+1-246)</option>
+                            <option value="+375">Belarus (+375)</option>
+                            <option value="+32">Belgium (+32)</option>
+                            <option value="+501">Belize (+501)</option>
+                            <option value="+229">Benin (+229)</option>
+                            <option value="+1-441">Bermuda (+1-441)</option>
+                            <option value="+975">Bhutan (+975)</option>
+                            <option value="+591">Bolivia (+591)</option>
+                            <option value="+387">Bosnia and Herzegovina (+387)</option>
+                            <option value="+267">Botswana (+267)</option>
+                            <option value="+55">Brazil (+55)</option>
+                            <option value="+246">British Indian Ocean Territory (+246)</option>
+                            <option value="+1-284">British Virgin Islands (+1-284)</option>
+                            <option value="+673">Brunei (+673)</option>
+                            <option value="+359">Bulgaria (+359)</option>
+                            <option value="+226">Burkina Faso (+226)</option>
+                            <option value="+257">Burundi (+257)</option>
+                            <option value="+855">Cambodia (+855)</option>
+                            <option value="+237">Cameroon (+237)</option>
+                            <option value="+1">Canada (+1)</option>
+                            <option value="+238">Cape Verde (+238)</option>
+                            <option value="+1-345">Cayman Islands (+1-345)</option>
+                            <option value="+236">Central African Republic (+236)</option>
+                            <option value="+235">Chad (+235)</option>
+                            <option value="+56">Chile (+56)</option>
+                            <option value="+61">Christmas Island (+61)</option>
+                            <option value="+61">Cocos Islands (+61)</option>
+                            <option value="+57">Colombia(+57)</option>
+                           <option value="+269">Comoros (+269)</option>
+                                                      <option value="+682">Cook Islands (+682)</option>
+                                                      <option value="+506">Costa Rica (+506)</option>
+                                                      </select>
+                        </div>
+                        <input type="tel" onkeydown="limit(this);" onkeyup="limit(this);" class="form-control" placeholder="Enter Phone Number with country code" aria-label="Phone Number" id="phonenumber" aria-describedby="basic-addon2"/>
+                      </div>
+                      <button
+                        type="button"
+                        id="kt_sing_in_two_factor_submit"
+                        class="btn btn-lg btn-primary fw-bold align-content-end col-4"
+                        onclick="GetOtp();"
+                      >
+                        <span class="indicator-label"> Send OTP </span>
+                        <span class="indicator-progress">
+                          Please wait...
+                          <span
+                            class="spinner-border spinner-border-sm align-middle ms-2"
+                          ></span>
+                        </span>
+                      </button>
+                      <!--end::Input-->
+                    </div>
+                    <!--end::Input group-->
+
+                    <br />
+                    <!--begin::Input group-->
+                    <div class="fv-row text-center m-5 d-none" id="otp_form">
+                      <!--begin::Row-->
+                      <div class="row">
+                        <form
+                          class="form w-100 mb-13"
+                          novalidate="novalidate"
+                          data-kt-redirect-url="#"
+                          id="kt_sing_in_two_factor_form"
+                        >
+                          <!--begin::Section-->
+                          <div class="mb-10 flex-center text-center">
+                            <!--begin::Label-->
+                            <div
+                              class="fw-bold text-start text-dark fs-6 mb-1 ms-1 flex-center text-center"
+                            >
+                              Type your 4 digit security code
+                            </div>
+                            <!--end::Label-->
+
+                            <!--begin::Input group-->
+                            <div class="d-flex flex-center text-center">
+                              <input
+                                type="text"
+                                name="otp"
+                                id="digit1"
+                                oninput="moveToNext(this, 'digit2')"
+                                data-inputmask="'mask': '9', 'placeholder': ''"
+                                maxlength="1"
+                                class="form-control bg-transparent h-60px w-60px fs-1qx text-center mx-1 my-2"
+                                value=""
+                                inputmode="text"
+                              />
+                              <input
+                                type="text"
+                                name="otp"
+                                id="digit2"
+                                oninput="moveToNext(this, 'digit3')"
+                                data-inputmask="'mask': '9', 'placeholder': ''"
+                                maxlength="1"
+                                class="form-control bg-transparent h-60px w-60px fs-1qx text-center mx-1 my-2"
+                                value=""
+                                inputmode="text"
+                              />
+                              <input
+                                type="text"
+                                name="otp"
+                                id="digit3"
+                                oninput="moveToNext(this, 'digit4')"
+                                data-inputmask="'mask': '9', 'placeholder': ''"
+                                maxlength="1"
+                                class="form-control bg-transparent h-60px w-60px fs-1qx text-center mx-1 my-2"
+                                value=""
+                                inputmode="text"
+                              />
+                              <input
+                                type="text"
+                                name="otp"
+                                id="digit4"
+                                data-inputmask="'mask': '9', 'placeholder': ''"
+                                maxlength="1"
+                                class="form-control bg-transparent h-60px w-60px fs-1qx text-center mx-1 my-2"
+                                value=""
+                                inputmode="text"
+                              />
+                            </div>
+                            <!--begin::Input group-->
+                            <!--begin::Heading-->
+                            <div class="text-center flex-center mb-10">
+                              <!--begin::Sub-title-->
+                              <div class="text-muted fw-semibold fs-5 mb-5">
+                                Enter the verification code we sent to
+                                <div class="fw-bold text-dark fs-3" id="user_number">
+                                  ******7859
+                                </div>
+                              </div>
+                              <!--end::Sub-title-->
+
+                              <!--begin::Mobile no-->
+
+                              <!--end::Mobile no-->
+                            </div>
+                            <!--end::Heading-->
+
+                            <!--begin::Sub-title-->
+                            <i
+                              ><div class="text-muted fw-semibold fs-5 mb-5">
+                                <input
+                                  class="form-check-input"
+                                  type="radio"
+                                  name="account_plan"
+                                  value="1"
+                                />
+                                Please confirm that you have read, understood, and accept our <a href="/tnc" target="_blank"> Privacy Policy and Terms of Condition</a> before registering.
+                                <br>
+                                <span class="text-danger fs-6" id="radio_text">Please accept the terme and conditions</span>
+                              </div>
+                              <!--end::Sub-title-->
+                            </i>
+                          </div>
+                          <!--end::Section-->
+
+                          <!--begin::Submit-->
+                          <div class="d-flex flex-center">
+                            <button
+                              type="button"
+                              id="submit"
+                              class="btn btn-lg btn-primary fw-bold"
+                              onclick="Submit()"
+                              disabled 
+                            >
+                              <span class="indicator-label"> Register </span>
+                            </button>
+                          </div>
+                          <br /><br />
+                          <div class="text-center fw-semibold fs-5 m-2">
+                            <span class="text-muted me-1"
+                              >Didn’t get the code ?</span
+                            >
+
+                            <a
+                              href="#"
+                              class="link-primary fs-5 me-1"
+                              onclick="GetOtp();"
+                              >Resend</a
+                            >
+                          </div>
+
+                          <!--end::Submit-->
+                        </form>
+                      </div>
+                      <!--end::Row-->
+                    </div>
+                    <!--end::Input group-->
+                  </div>
+                  <!--end::Wrapper-->
+                </div>
+                <!--end::Step 1-->
+
+                <!--begin::Step 2-->
+                <div class="" data-kt-stepper-element="content">
+                  <!--begin::Wrapper-->
+                  <div class="w-100">
+                    <!--begin::Heading-->
+                    <div class="pb-10 pb-lg-15">
+                      <!--begin::Title-->
+                      <h2 class="fw-bold text-dark">Personal Details</h2>
+                      <!--end::Title-->
+
+                      <!--begin::Notice-->
+                      <div class="text-muted fw-semibold fs-6">
+                        Setup your personal details.
+                      </div>
+                      <!--end::Notice-->
+                    </div>
+                    <!--end::Heading-->
+
+                    <!--begin::Input group-->
+                    <div class="mb-10 fv-row">
+                      <!--begin::Label-->
+                      <!-- <label class="d-flex align-items-center form-label mb-3">
+            Specify Team Size
+
+
+<span class="ms-1"  data-bs-toggle="tooltip" title="Provide your team size to help us setup your billing" >
+	<i class="ki-duotone ki-information-5 text-gray-500 fs-6"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i></span>        </label> -->
+                      <!--end::Label-->
+
+                      <!--begin::Row-->
+                      <div
+                        class="row mb-2"
+                        style="display: none"
+                        data-kt-buttons="true"
+                      >
+                        <!--begin::Col-->
+                        <div class="col">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              value="1-1"
+                            />
+                            <span class="fw-bold fs-3">1-1</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+
+                        <!--begin::Col-->
+                        <div class="col">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4 active"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              checked
+                              value="2-10"
+                            />
+                            <span class="fw-bold fs-3">2-10</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+
+                        <!--begin::Col-->
+                        <div class="col">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              value="10-50"
+                            />
+                            <span class="fw-bold fs-3">10-50</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+
+                        <!--begin::Col-->
+                        <div class="col">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              value="50+"
+                            />
+                            <span class="fw-bold fs-3">50+</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+                      </div>
+                      <!--end::Row-->
+
+                      <!--begin::Hint-->
+                      <!-- <div class="form-text">
+            Customers will see this shortened version of your statement descriptor
+        </div> -->
+                      <!--end::Hint-->
+                    </div>
+
+                    <div class="col-12 row">
+                      <!--end::Input group-->
+
+                      <!--begin::Input group-->
+                      <div class="mb-10 fv-row col-6">
+                        <!--begin::Label-->
+                        <label class="form-label mb-3">Your Name</label>
+                        <!--end::Label-->
+
+                        <!--begin::Input-->
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="account_name"
+                          placeholder=""
+                          value=""
+                        />
+                        <!--end::Input-->
+                      </div>
+                      <!--end::Input group-->
+                      <!--begin::Input group-->
+                      <div class="mb-10 fv-row col-6">
+                        <!--begin::Label-->
+                        <label class="form-label mb-3">Your Email</label>
+                        <!--end::Label-->
+
+                        <!--begin::Input-->
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="account_name"
+                          placeholder=""
+                          value=""
+                        />
+                        <!--end::Input-->
+                      </div>
+                      <!--end::Input group-->
+                    </div>
+
+                    <!--begin::Input group-->
+                    <div class="fv-row mb-10">
+                      <!--begin::Label-->
+                      <label class="form-label required">Select State</label>
+                      <!--end::Label-->
+
+                      <!--begin::Input-->
+                      <select
+                        name="business_type"
+                        class="form-select form-select-lg form-select-solid"
+                        data-control="select2"
+                        data-placeholder="Select..."
+                        data-allow-clear="true"
+                        data-hide-search="true"
+                        onchange="print_city('state', this.selectedIndex);"
+                        id="sts"
+                        name="stt"
+                        required
+                      >
+                        <option></option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Andaman and Nicobar Islands">
+                          Andaman and Nicobar Islands
+                        </option>
+                        <option value="Arunachal Pradesh">
+                          Arunachal Pradesh
+                        </option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Dadar and Nagar Haveli">
+                          Dadar and Nagar Haveli
+                        </option>
+                        <option value="Daman and Diu">Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Puducherry">Puducherry</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">
+                          Himachal Pradesh
+                        </option>
+                        <option value="Jammu and Kashmir">
+                          Jammu and Kashmir
+                        </option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                      </select>
+                      <!--end::Input-->
+                    </div>
+                    <!--end::Input group-->
+                    <!--begin::Input group-->
+                    <div class="mb-0 fv-row">
+                      <!--begin::Label-->
+                      <label class="d-flex align-items-center form-label mb-5">
+                        Select your Role
+
+                        <span
+                          class="ms-1"
+                          data-bs-toggle="tooltip"
+                          title="Monthly billing will be based on your account plan"
+                        >
+                          <i
+                            class="ki-duotone ki-information-5 text-gray-500 fs-6"
+                            ><span class="path1"></span
+                            ><span class="path2"></span
+                            ><span class="path3"></span></i
+                        ></span>
+                      </label>
+                      <!--end::Label-->
+
+                      <!--begin::Options-->
+                      <div class="mb-0">
+                        <!--begin:Option-->
+                        <label class="d-flex flex-stack mb-5 cursor-pointer">
+                          <!--begin:Label-->
+                          <span class="d-flex align-items-center me-2">
+                            <!--begin::Icon-->
+                            <span class="symbol symbol-50px me-6">
+                              <span class="symbol-label">
+                                <i class="la la-tractor fs-1 text-gray-600"
+                                  ><span class="path1"></span
+                                  ><span class="path2"></span
+                                ></i>
+                              </span>
+                            </span>
+                            <!--end::Icon-->
+
+                            <!--begin::Description-->
+                            <span class="d-flex flex-column">
+                              <span
+                                class="fw-bold text-gray-800 text-hover-primary fs-5"
+                                >Farmer</span
+                              >
+                              <!-- <span class="fs-6 fw-semibold text-muted">Use images to enhance your post flow</span> -->
+                            </span>
+                            <!--end:Description-->
+                          </span>
+                          <!--end:Label-->
+
+                          <!--begin:Input-->
+                          <span
+                            class="form-check form-check-custom form-check-solid"
+                          >
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="account_plan"
+                              value="1"
+                            />
+                          </span>
+                          <!--end:Input-->
+                        </label>
+                        <!--end::Option-->
+
+                        <!--begin:Option-->
+                        <label class="d-flex flex-stack mb-5 cursor-pointer">
+                          <!--begin:Label-->
+                          <span class="d-flex align-items-center me-2">
+                            <!--begin::Icon-->
+                            <span class="symbol symbol-50px me-6">
+                              <span class="symbol-label">
+                                <i class="la la-store fs-1 text-gray-600"
+                                  ><span class="path1"></span
+                                  ><span class="path2"></span
+                                ></i>
+                              </span>
+                            </span>
+                            <!--end::Icon-->
+
+                            <!--begin::Description-->
+                            <span class="d-flex flex-column">
+                              <span
+                                class="fw-bold text-gray-800 text-hover-primary fs-5"
+                                >trader</span
+                              >
+                              <!-- <span class="fs-6 fw-semibold text-muted">Use images to your post time</span> -->
+                            </span>
+                            <!--end:Description-->
+                          </span>
+                          <!--end:Label-->
+
+                          <!--begin:Input-->
+                          <span
+                            class="form-check form-check-custom form-check-solid"
+                          >
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              checked
+                              name="account_plan"
+                              value="2"
+                            />
+                          </span>
+                          <!--end:Input-->
+                        </label>
+                        <!--end::Option-->
+
+                        <!--begin:Option-->
+                        <label class="d-flex flex-stack mb-5 cursor-pointer">
+                          <!--begin:Label-->
+                          <span class="d-flex align-items-center me-2">
+                            <!--begin::Icon-->
+                            <span class="symbol symbol-50px me-6">
+                              <span class="symbol-label">
+                                <i
+                                  class="la la-search-location fs-1 text-gray-600"
+                                  ><span class="path1"></span
+                                  ><span class="path2"></span
+                                  ><span class="path3"></span
+                                ></i>
+                              </span>
+                            </span>
+                            <!--end::Icon-->
+
+                            <!--begin::Description-->
+                            <span class="d-flex flex-column">
+                              <span
+                                class="fw-bold text-gray-800 text-hover-primary fs-5"
+                                >land owner</span
+                              >
+                              <!-- <span class="fs-6 fw-semibold text-muted">Use images to enhance time travel rivers</span> -->
+                            </span>
+                            <!--end:Description-->
+                          </span>
+                          <!--end:Label-->
+
+                          <!--begin:Input-->
+                          <span
+                            class="form-check form-check-custom form-check-solid"
+                          >
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="account_plan"
+                              value="3"
+                            />
+                          </span>
+                          <!--end:Input-->
+                        </label>
+                        <!--end::Option-->
+                        <!--begin:Option-->
+                        <label class="d-flex flex-stack mb-5 cursor-pointer">
+                          <!--begin:Label-->
+                          <span class="d-flex align-items-center me-2">
+                            <!--begin::Icon-->
+                            <span class="symbol symbol-50px me-6">
+                              <span class="symbol-label">
+                                <i class="la la-shield fs-1 text-gray-600"
+                                  ><span class="path1"></span
+                                  ><span class="path2"></span
+                                  ><span class="path3"></span
+                                ></i>
+                              </span>
+                            </span>
+                            <!--end::Icon-->
+
+                            <!--begin::Description-->
+                            <span class="d-flex flex-column">
+                              <span
+                                class="fw-bold text-gray-800 text-hover-primary fs-5"
+                                >Fauji</span
+                              >
+                              <!-- <span class="fs-6 fw-semibold text-muted">Use images to enhance time travel rivers</span> -->
+                            </span>
+                            <!--end:Description-->
+                          </span>
+                          <!--end:Label-->
+
+                          <!--begin:Input-->
+                          <span
+                            class="form-check form-check-custom form-check-solid"
+                          >
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="account_plan"
+                              value="3"
+                            />
+                          </span>
+                          <!--end:Input-->
+                        </label>
+                        <!--end::Option-->
+                        <!--begin:Option-->
+                        <label class="d-flex flex-stack mb-5 cursor-pointer">
+                          <!--begin:Label-->
+                          <span class="d-flex align-items-center me-2">
+                            <!--begin::Icon-->
+                            <span class="symbol symbol-50px me-6">
+                              <span class="symbol-label">
+                                <i
+                                  class="la la-truck-loading fs-1 text-gray-600"
+                                  ><span class="path1"></span
+                                  ><span class="path2"></span
+                                  ><span class="path3"></span
+                                ></i>
+                              </span>
+                            </span>
+                            <!--end::Icon-->
+
+                            <!--begin::Description-->
+                            <span class="d-flex flex-column">
+                              <span
+                                class="fw-bold text-gray-800 text-hover-primary fs-5"
+                                >Exporter</span
+                              >
+                              <!-- <span class="fs-6 fw-semibold text-muted">Use images to enhance time travel rivers</span> -->
+                            </span>
+                            <!--end:Description-->
+                          </span>
+                          <!--end:Label-->
+
+                          <!--begin:Input-->
+                          <span
+                            class="form-check form-check-custom form-check-solid"
+                          >
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="account_plan"
+                              value="3"
+                            />
+                          </span>
+                          <!--end:Input-->
+                        </label>
+                        <!--end::Option-->
+                        <!--begin:Option-->
+                        <label class="d-flex flex-stack mb-5 cursor-pointer">
+                          <!--begin:Label-->
+                          <span class="d-flex align-items-center me-2">
+                            <!--begin::Icon-->
+                            <span class="symbol symbol-50px me-6">
+                              <span class="symbol-label">
+                                <i class="la la-user fs-1 text-gray-600"
+                                  ><span class="path1"></span
+                                  ><span class="path2"></span
+                                  ><span class="path3"></span
+                                ></i>
+                              </span>
+                            </span>
+                            <!--end::Icon-->
+
+                            <!--begin::Description-->
+                            <span class="d-flex flex-column">
+                              <span
+                                class="fw-bold text-gray-800 text-hover-primary fs-5"
+                                >Others</span
+                              >
+                              <!-- <span class="fs-6 fw-semibold text-muted">Use images to enhance time travel rivers</span> -->
+                            </span>
+                            <!--end:Description-->
+                          </span>
+                          <!--end:Label-->
+
+                          <!--begin:Input-->
+                          <span
+                            class="form-check form-check-custom form-check-solid"
+                          >
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="account_plan"
+                              value="3"
+                            />
+                          </span>
+                          <!--end:Input-->
+                        </label>
+                        <!--end::Option-->
+                      </div>
+                      <!--end::Options-->
+                    </div>
+                    <!--end::Input group-->
+                  </div>
+                  <!--end::Wrapper-->
+                </div>
+                <!--end::Step 2-->
+
+                <!--begin::Step 3-->
+                <div class="" data-kt-stepper-element="content">
+                  <!--begin::Wrapper-->
+                  <div class="w-100">
+                    <!--begin::Heading-->
+                    <div class="pb-10 pb-lg-12">
+                      <!--begin::Title-->
+                      <h2 class="fw-bold text-dark">Categories</h2>
+                      <!--end::Title-->
+                      <br />
+                      <!--begin::Row-->
+                      <div class="row mb-2 col-12" data-kt-buttons="true">
+                        <!--begin::Col-->
+                        <div class="col-4 m-2">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              value="1-1"
+                            />
+                            <span class="fw-bold fs-3">General Guidance</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+
+                        <!--begin::Col-->
+                        <div class="col-3 m-2">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4 active"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              checked
+                              value="2-10"
+                            />
+                            <span class="fw-bold fs-3">Grow new Crops</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+
+                        <!--begin::Col-->
+                        <div class="col-4">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              value="10-50"
+                            />
+                            <span class="fw-bold fs-3">Grow Organic Crops</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+
+                        <!--begin::Col-->
+                        <div class="col">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              value="50+"
+                            />
+                            <span class="fw-bold fs-3">Animal Husbandry</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+
+                        <!--begin::Col-->
+                        <div class="col-5 m-2">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              value="50+"
+                            />
+                            <span class="fw-bold fs-3"
+                              >Developing food processing unit</span
+                            >
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+                        <!--begin::Col-->
+                        <div class="col m-2">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              value="50+"
+                            />
+                            <span class="fw-bold fs-3">Dairy</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+                        <!--begin::Col-->
+                        <div class="col m-2">
+                          <!--begin::Option-->
+                          <label
+                            class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4"
+                          >
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="account_team_size"
+                              value="50+"
+                            />
+                            <span class="fw-bold fs-3">Others</span>
+                          </label>
+                          <!--end::Option-->
+                        </div>
+                        <!--end::Col-->
+                      </div>
+                      <!--end::Row-->
+                    </div>
+                    <!--end::Heading-->
+
+                    <!--begin::Input group-->
+                    <div class="fv-row mb-0">
+                      <!--begin::Label-->
+                      <label class="fs-6 fw-semibold form-label required"
+                        >Area Available</label
+                      >
+                      <!--end::Label-->
+
+                      <!--begin::Input-->
+                      <input
+                        name="business_email"
+                        class="form-control form-control-lg form-control-solid"
+                      />
+                      <!--end::Input-->
+                    </div>
+                    <!--end::Input group-->
+                    <br />
+                    <!--begin::Input group-->
+                    <div class="fv-row mb-10">
+                      <!--begin::Label-->
+                      <label class="form-label required">Select Scale</label>
+                      <!--end::Label-->
+
+                      <!--begin::Input-->
+                      <select
+                        name="business_type"
+                        class="form-select form-select-lg form-select-solid"
+                        data-control="select2"
+                        data-placeholder="Select..."
+                        data-allow-clear="true"
+                        data-hide-search="true"
+                      >
+                        <option></option>
+                        <option value="1">Square meter</option>
+                        <option value="1">Acre</option>
+                        <option value="2">Hectare</option>
+                        <option value="3">Gaj</option>
+                        <option value="4">Kanal</option>
+                        <option value="5">Bigha</option>
+                        <option value="1">Biswa</option>
+                        <option value="1">Killa</option>
+                        <option value="2">Lessa</option>
+                        <option value="3">Dhur</option>
+                        <option value="4">Pura</option>
+                        <option value="5">Chatak</option>
+                        <option value="5">Marla</option>
+                        <option value="1">Square Yard</option>
+                        <option value="1">Katha</option>
+                        <option value="2">Ground</option>
+                        <option value="3">Cent</option>
+                        <option value="4">Guntha</option>
+                        <option value="5">Karam</option>
+                      </select>
+                      <!--end::Input-->
+                    </div>
+                    <!--end::Input group-->
+
+                    <!--begin::Input group-->
+                    <div class="fv-row mb-10">
+                      <!--end::Label-->
+                      <label class="form-label">Present Utilization</label>
+                      <!--end::Label-->
+
+                      <!--begin::Input-->
+                      <textarea
+                        name="business_description"
+                        class="form-control form-control-lg form-control-solid"
+                        rows="3"
+                      ></textarea>
+                      <!--end::Input-->
+                    </div>
+                    <!--end::Input group-->
+                  </div>
+                  <!--end::Wrapper-->
+                </div>
+                <!--end::Step 3-->
+
+                <!--begin::Step 5-->
+                <div class="" data-kt-stepper-element="content d-none">
+                  <!--begin::Wrapper-->
+                  <div class="w-100 d-none">
+                    <!--begin::Heading-->
+                    <div class="pb-8 pb-lg-10">
+                      <!--begin::Title-->
+                      <h2 class="fw-bold text-dark">Your Are Done!</h2>
+                      <!--end::Title-->
+
+                      <!--begin::Notice-->
+                      <div class="text-muted fw-semibold fs-6">
+                        If you need more info, please
+                        <a href="" class="link-primary fw-bold"> Sign In </a>
+                        .
+                      </div>
+                      <!--end::Notice-->
+                    </div>
+                    <!--end::Heading-->
+
+                    <!--begin::Body-->
+                    <div class="mb-0">
+                      <!--begin::Text-->
+                      <div class="fs-6 text-gray-600 mb-5">
+                        Writing headlines for blog posts is as much an art as it
+                        is a science and probably warrants its own post, but for
+                        all advise is with what works for your great & amazing
+                        audience.
+                      </div>
+                      <!--end::Text-->
+
+                      <!--begin::Alert-->
+
+                      <!--begin::Notice-->
+                      <div
+                        class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6"
+                      >
+                        <!--begin::Icon-->
+                        <i
+                          class="ki-duotone ki-information fs-2tx text-warning me-4"
+                          ><span class="path1"></span><span class="path2"></span
+                          ><span class="path3"></span
+                        ></i>
+                        <!--end::Icon-->
+
+                        <!--begin::Wrapper-->
+                        <div class="d-flex flex-stack flex-grow-1">
+                          <!--begin::Content-->
+                          <div class="fw-semibold">
+                            <h4 class="text-gray-900 fw-bold">
+                              We need your attention!
+                            </h4>
+
+                            <div class="fs-6 text-gray-700">
+                              To start using great tools, please,
+                              <a
+                                href="https://preview.keenthemes.com/metronic8/demo1/utilities/wizards/vertical.html"
+                                class="fw-bold"
+                                >Create Team Platform</a
+                              >
+                            </div>
+                          </div>
+                          <!--end::Content-->
+                        </div>
+                        <!--end::Wrapper-->
+                      </div>
+                      <!--end::Notice-->
+                      <!--end::Alert-->
+                    </div>
+                    <!--end::Body-->
+                  </div>
+                  <!--end::Wrapper-->
+                </div>
+                <!--end::Step 5-->
+
+                <!--begin::Actions-->
+                <div class="d-flex flex-stack pt-15">
+                  <div class="mr-2">
+                    <button
+                      type="button"
+                      class="btn btn-lg btn-light-primary me-3"
+                      data-kt-stepper-action="previous"
+                    >
+                      <i class="ki-duotone ki-arrow-left fs-4 me-1"
+                        ><span class="path1"></span><span class="path2"></span
+                      ></i>
+                      Previous
+                    </button>
+                  </div>
+                </div>
+                <!--end::Actions-->
+              </form>
+              <!--end::Form-->
+            </div>
+            <!--end::Wrapper-->
+          </div>
+          <!--end::Content-->
+        </div>
+        <!--end::Body-->
+      </div>
+      <!--end::Authentication - Multi-steps-->
+    </div>
+    <!--end::Root-->
+
+    <!--begin::Javascript-->
+    <script>
+      var hostUrl = "https://preview.keenthemes.com/metronic8/demo1/assets/";
+    </script>
+
+    <script>
+      let selectedCountryCode;
+      function moveToNext(currentInput, nextInputId) {
+        if (currentInput.value.length == currentInput.maxLength) {
+          document.getElementById(nextInputId).focus();
+        }
+      }
+
+      function moveToPrev(currentInput, prevInputId) {
+        if (currentInput.value.length == 0) {
+          document.getElementById(prevInputId).focus();
+        }
+      }
+
+      document
+        .getElementById("digit1")
+        .addEventListener("keydown", function (e) {
+          if (e.code === "Backspace") {
+            moveToPrev(this, "");
+          }
+        });
+
+      document
+        .getElementById("digit2")
+        .addEventListener("keydown", function (e) {
+          if (e.code === "Backspace") {
+            moveToPrev(this, "digit1");
+          }
+        });
+
+      document
+        .getElementById("digit3")
+        .addEventListener("keydown", function (e) {
+          if (e.code === "Backspace") {
+            moveToPrev(this, "digit2");
+          }
+        });
+
+      document
+        .getElementById("digit4")
+        .addEventListener("keydown", function (e) {
+          if (e.code === "Backspace") {
+            moveToPrev(this, "digit3");
+          }
+        });
+    </script>
+
+    <!--begin::Global Javascript Bundle(mandatory for all pages)-->
+    <script src="/static/assets/plugins/global/plugins.bundle.js"></script>
+    <script src="/static/assets/js/scripts.bundle.js"></script>
+    <!--end::Global Javascript Bundle-->
+
+    <!--begin::Custom Javascript(used for this page only)-->
+    <!-- <script src="/static/assets/js/custom/utilities/modals/create-account.js"></script> -->
+    <!--end::Custom Javascript-->
+    <!--end::Javascript-->
+    <script>
+      let user_otp;
+      let server_otp;
+      let phonenumber;
+      let countrySelect;
+
+      const radioBtn = document.querySelector('input[name="account_plan"]');
+      const submitBtn = document.querySelector('#submit');
+
+      radioBtn.addEventListener('change', () => {
+        if (radioBtn.checked) {
+          submitBtn.disabled = false;
+          document.getElementById('radio_text').style.display='none';
+        } else {
+          submitBtn.disabled = true;
+        }
+      });
+      
+      let current_location = [];
+      function GetOtp() {
+        // Get the selected country code
+      // var dropdownToggle = document.querySelector('.dropdown-toggle');
+      // console.log(dropdownToggle.textContent);
+      // var countryCode = dropdownToggle.textContent.trim().split(' ')[0];
+      countrySelect = document.getElementById("countrySelect");
+      selectedCountryCode = countrySelect.options[countrySelect.selectedIndex].value;
+      console.log(selectedCountryCode);
+      // Get the entered phone number
+       phonenumber = document.getElementById('phonenumber').value;
+       console.log(phonenumber);
+        // phonenumber = document.getElementById("number").value;
+        if (phonenumber.length < 10) {
+          Swal.fire("please enter a valid phone number");
+        } else {
+          var payload = {
+            action: "Register_OTP",
+            Username: selectedCountryCode + phonenumber,
+          };
+          ajax(payload.action, payload);
+        }
+      }
+    </script>
+    <script>
+      //----------handle ajax----------
+      function ajax(action, payload) {
+        const xhr = new XMLHttpRequest();
+        xhr.responseType = "json";
+        xhr.open("POST", "/actions");
+        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        xhr.send(JSON.stringify(payload));
+        console.log(JSON.stringify(payload));
+        xhr.onload = function () {
+          const response = xhr.response;
+          console.log(response);
+          if (response.action == "Register_OTP") {
+            if (response.Status == 100) {
+              Swal.fire({
+                text: "User with this number already exists",
+                icon: "danger",
+                buttonsStyling: true,
+                confirmButtonText: "Ok, got it!",
+                customClass: {
+                  confirmButton: "btn btn-danger",
+                },
+              });
+            } else if (response.Status == 200) {
+              let otp_form = document.getElementById("otp_form");
+              document.getElementById("user_number").innerHTML =document.getElementById('phonenumber').value;
+                // document.getElementById("number").value;
+              otp_form.classList.remove("d-none");
+              server_otp = response.otp;
+            }
+          } else if (response.action == "Registration") {
+            if (response.Status == 200) {
+              Swal.fire({
+                text: "Your are Successfully logged in",
+                icon: "Success",
+                buttonsStyling: false,
+                confirmButtonText: "Ok, got it!",
+                customClass: {
+                  confirmButton: "btn btn-success",
+                },
+              });
+              location.href = "/profile";
+            }
+            else if (response.Status == 100) {
+              Swal.fire({
+                text: "User with this number already exist",
+                icon: "Success",
+                buttonsStyling: false,
+                confirmButtonText: "Ok, got it!",
+                customClass: {
+                  confirmButton: "btn btn-danger",
+                },
+              });
+              setTimeout(function() {location.href = "/signup";}, 2000);
+            }
+          }
+        };
+      }
+
+      function Submit() {
+        user_otp =
+          document.getElementById("digit1").value * 1000 +
+          document.getElementById("digit2").value * 100 +
+          document.getElementById("digit3").value * 10 +
+          document.getElementById("digit4").value * 1;
+        console.log(user_otp + "---" + server_otp + "---");
+        user_otp = parseInt(user_otp);
+        console.log(user_otp);
+        if (user_otp == server_otp) {
+          var payload = {
+            action: "Registration",
+            Username: selectedCountryCode+phonenumber,
+            location: current_location,
+          };
+          ajax(payload.action, payload);
+          Swal.fire({
+            text: "logging in...",
+            icon: "info",
+            buttonsStyling: false,
+            confirmButtonText: "Ok, got it!",
+            customClass: {
+              confirmButton: "btn btn-primary",
+            },
+          });
+        }
+        else{
+          Swal.fire({
+            text: "Please enter correct OTP!",
+            icon: "danger",
+            buttonsStyling: false,
+            confirmButtonText: "Ok, got it!",
+            customClass: {
+              confirmButton: "btn btn-primary",
+            },
+          }); 
+        }
+      }
+
+      // Check if the browser supports Geolocation API
+      if (navigator.geolocation) {
+        // Get the current position of the user
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        console.log("Geolocation is not supported by this browser.");
+      }
+
+      // Function to show the position on the screen
+      function showPosition(position) {
+        // Get the latitude and longitude of the current position
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+
+        // Print the latitude and longitude on the console
+        console.log("Latitude: " + latitude);
+        console.log("Longitude: " + longitude);
+        current_location = [latitude, longitude];
+      }
+    </script>
+    <script>
+      // Array of objects that contain country code and country name information
+var countryCodes =[
+{
+"name": "Afghanistan",
+"dial_code": "+93",
+"code": "AF"
+},
+{
+"name": "Aland Islands",
+"dial_code": "+358",
+"code": "AX"
+},
+{
+"name": "Albania",
+"dial_code": "+355",
+"code": "AL"
+},
+{
+"name": "Algeria",
+"dial_code": "+213",
+"code": "DZ"
+},
+{
+"name": "AmericanSamoa",
+"dial_code": "+1684",
+"code": "AS"
+},
+{
+"name": "Andorra",
+"dial_code": "+376",
+"code": "AD"
+},
+{
+"name": "Angola",
+"dial_code": "+244",
+"code": "AO"
+},
+{
+"name": "Anguilla",
+"dial_code": "+1264",
+"code": "AI"
+},
+{
+"name": "Antarctica",
+"dial_code": "+672",
+"code": "AQ"
+},
+{
+"name": "Antigua and Barbuda",
+"dial_code": "+1268",
+"code": "AG"
+},
+{
+"name": "Argentina",
+"dial_code": "+54",
+"code": "AR"
+},
+{
+"name": "Armenia",
+"dial_code": "+374",
+"code": "AM"
+},
+{
+"name": "Aruba",
+"dial_code": "+297",
+"code": "AW"
+},
+{
+"name": "Australia",
+"dial_code": "+61",
+"code": "AU"
+},
+{
+"name": "Austria",
+"dial_code": "+43",
+"code": "AT"
+},
+{
+"name": "Azerbaijan",
+"dial_code": "+994",
+"code": "AZ"
+},
+{
+"name": "Bahamas",
+"dial_code": "+1242",
+"code": "BS"
+},
+{
+"name": "Bahrain",
+"dial_code": "+973",
+"code": "BH"
+},
+{
+"name": "Bangladesh",
+"dial_code": "+880",
+"code": "BD"
+},
+{
+"name": "Barbados",
+"dial_code": "+1246",
+"code": "BB"
+},
+{
+"name": "Belarus",
+"dial_code": "+375",
+"code": "BY"
+},
+{
+"name": "Belgium",
+"dial_code": "+32",
+"code": "BE"
+},
+{
+"name": "Belize",
+"dial_code": "+501",
+"code": "BZ"
+},
+{
+"name": "Benin",
+"dial_code": "+229",
+"code": "BJ"
+},
+{
+"name": "Bermuda",
+"dial_code": "+1441",
+"code": "BM"
+},
+{
+"name": "Bhutan",
+"dial_code": "+975",
+"code": "BT"
+},
+{
+"name": "Bolivia, Plurinational State of",
+"dial_code": "+591",
+"code": "BO"
+},
+{
+"name": "Bosnia and Herzegovina",
+"dial_code": "+387",
+"code": "BA"
+},
+{
+"name": "Botswana",
+"dial_code": "+267",
+"code": "BW"
+},
+{
+"name": "Brazil",
+"dial_code": "+55",
+"code": "BR"
+},
+{
+"name": "British Indian Ocean Territory",
+"dial_code": "+246",
+"code": "IO"
+},
+{
+"name": "Brunei Darussalam",
+"dial_code": "+673",
+"code": "BN"
+},
+{
+"name": "Bulgaria",
+"dial_code": "+359",
+"code": "BG"
+},
+{
+"name": "Burkina Faso",
+"dial_code": "+226",
+"code": "BF"
+},
+{
+"name": "Burundi",
+"dial_code": "+257",
+"code": "BI"
+},
+{
+"name": "Cambodia",
+"dial_code": "+855",
+"code": "KH"
+},
+{
+"name": "Cameroon",
+"dial_code": "+237",
+"code": "CM"
+},
+{
+"name": "Canada",
+"dial_code": "+1",
+"code": "CA"
+},
+{
+"name": "Cape Verde",
+"dial_code": "+238",
+"code": "CV"
+},
+{
+"name": "Cayman Islands",
+"dial_code": "+ 345",
+"code": "KY"
+},
+{
+"name": "Central African Republic",
+"dial_code": "+236",
+"code": "CF"
+},
+{
+"name": "Chad",
+"dial_code": "+235",
+"code": "TD"
+},
+{
+"name": "Chile",
+"dial_code": "+56",
+"code": "CL"
+},
+{
+"name": "Christmas Island",
+"dial_code": "+61",
+"code": "CX"
+},
+{
+"name": "Cocos (Keeling) Islands",
+"dial_code": "+61",
+"code": "CC"
+},
+{
+"name": "Colombia",
+"dial_code": "+57",
+"code": "CO"
+},
+{
+"name": "Comoros",
+"dial_code": "+269",
+"code": "KM"
+},
+{
+"name": "Congo",
+"dial_code": "+242",
+"code": "CG"
+},
+{
+"name": "Congo, The Democratic Republic of the Congo",
+"dial_code": "+243",
+"code": "CD"
+},
+{
+"name": "Cook Islands",
+"dial_code": "+682",
+"code": "CK"
+},
+{
+"name": "Costa Rica",
+"dial_code": "+506",
+"code": "CR"
+},
+{
+"name": "Cote d'Ivoire",
+"dial_code": "+225",
+"code": "CI"
+},
+{
+"name": "Croatia",
+"dial_code": "+385",
+"code": "HR"
+},
+{
+"name": "Cuba",
+"dial_code": "+53",
+"code": "CU"
+},
+{
+"name": "Cyprus",
+"dial_code": "+357",
+"code": "CY"
+},
+{
+"name": "Czech Republic",
+"dial_code": "+420",
+"code": "CZ"
+},
+{
+"name": "Denmark",
+"dial_code": "+45",
+"code": "DK"
+},
+{
+"name": "Djibouti",
+"dial_code": "+253",
+"code": "DJ"
+},
+{
+"name": "Dominica",
+"dial_code": "+1767",
+"code": "DM"
+},
+{
+"name": "Dominican Republic",
+"dial_code": "+1849",
+"code": "DO"
+},
+{
+"name": "Ecuador",
+"dial_code": "+593",
+"code": "EC"
+},
+{
+"name": "Egypt",
+"dial_code": "+20",
+"code": "EG"
+},
+{
+"name": "El Salvador",
+"dial_code": "+503",
+"code": "SV"
+},
+{
+"name": "Equatorial Guinea",
+"dial_code": "+240",
+"code": "GQ"
+},
+{
+"name": "Eritrea",
+"dial_code": "+291",
+"code": "ER"
+},
+{
+"name": "Estonia",
+"dial_code": "+372",
+"code": "EE"
+},
+{
+"name": "Ethiopia",
+"dial_code": "+251",
+"code": "ET"
+},
+{
+"name": "Falkland Islands (Malvinas)",
+"dial_code": "+500",
+"code": "FK"
+},
+{
+"name": "Faroe Islands",
+"dial_code": "+298",
+"code": "FO"
+},
+{
+"name": "Fiji",
+"dial_code": "+679",
+"code": "FJ"
+},
+{
+"name": "Finland",
+"dial_code": "+358",
+"code": "FI"
+},
+{
+"name": "France",
+"dial_code": "+33",
+"code": "FR"
+},
+{
+"name": "French Guiana",
+"dial_code": "+594",
+"code": "GF"
+},
+{
+"name": "French Polynesia",
+"dial_code": "+689",
+"code": "PF"
+},
+{
+"name": "Gabon",
+"dial_code": "+241",
+"code": "GA"
+},
+{
+"name": "Gambia",
+"dial_code": "+220",
+"code": "GM"
+},
+{
+"name": "Georgia",
+"dial_code": "+995",
+"code": "GE"
+},
+{
+"name": "Germany",
+"dial_code": "+49",
+"code": "DE"
+},
+{
+"name": "Ghana",
+"dial_code": "+233",
+"code": "GH"
+},
+{
+"name": "Gibraltar",
+"dial_code": "+350",
+"code": "GI"
+},
+{
+"name": "Greece",
+"dial_code": "+30",
+"code": "GR"
+},
+{
+"name": "Greenland",
+"dial_code": "+299",
+"code": "GL"
+},
+{
+"name": "Grenada",
+"dial_code": "+1473",
+"code": "GD"
+},
+{
+"name": "Guadeloupe",
+"dial_code": "+590",
+"code": "GP"
+},
+{
+"name": "Guam",
+"dial_code": "+1671",
+"code": "GU"
+},
+{
+"name": "Guatemala",
+"dial_code": "+502",
+"code": "GT"
+},
+{
+"name": "Guernsey",
+"dial_code": "+44",
+"code": "GG"
+},
+{
+"name": "Guinea",
+"dial_code": "+224",
+"code": "GN"
+},
+{
+"name": "Guinea-Bissau",
+"dial_code": "+245",
+"code": "GW"
+},
+{
+"name": "Guyana",
+"dial_code": "+595",
+"code": "GY"
+},
+{
+"name": "Haiti",
+"dial_code": "+509",
+"code": "HT"
+},
+{
+"name": "Holy See (Vatican City State)",
+"dial_code": "+379",
+"code": "VA"
+},
+{
+"name": "Honduras",
+"dial_code": "+504",
+"code": "HN"
+},
+{
+"name": "Hong Kong",
+"dial_code": "+852",
+"code": "HK"
+},
+{
+"name": "Hungary",
+"dial_code": "+36",
+"code": "HU"
+},
+{
+"name": "Iceland",
+"dial_code": "+354",
+"code": "IS"
+},
+{
+"name": "India",
+"dial_code": "+91",
+"code": "IN"
+},
+{
+"name": "Indonesia",
+"dial_code": "+62",
+"code": "ID"
+},
+{
+"name": "Iran, Islamic Republic of Persian Gulf",
+"dial_code": "+98",
+"code": "IR"
+},
+{
+"name": "Iraq",
+"dial_code": "+964",
+"code": "IQ"
+},
+{
+"name": "Ireland",
+"dial_code": "+353",
+"code": "IE"
+},
+{
+"name": "Isle of Man",
+"dial_code": "+44",
+"code": "IM"
+},
+{
+"name": "Israel",
+"dial_code": "+972",
+"code": "IL"
+},
+{
+"name": "Italy",
+"dial_code": "+39",
+"code": "IT"
+},
+{
+"name": "Jamaica",
+"dial_code": "+1876",
+"code": "JM"
+},
+{
+"name": "Japan",
+"dial_code": "+81",
+"code": "JP"
+},
+{
+"name": "Jersey",
+"dial_code": "+44",
+"code": "JE"
+},
+{
+"name": "Jordan",
+"dial_code": "+962",
+"code": "JO"
+},
+{
+"name": "Kazakhstan",
+"dial_code": "+77",
+"code": "KZ"
+},
+{
+"name": "Kenya",
+"dial_code": "+254",
+"code": "KE"
+},
+{
+"name": "Kiribati",
+"dial_code": "+686",
+"code": "KI"
+},
+{
+"name": "Korea, Democratic People's Republic of Korea",
+"dial_code": "+850",
+"code": "KP"
+},
+{
+"name": "Korea, Republic of South Korea",
+"dial_code": "+82",
+"code": "KR"
+},
+{
+"name": "Kuwait",
+"dial_code": "+965",
+"code": "KW"
+},
+{
+"name": "Kyrgyzstan",
+"dial_code": "+996",
+"code": "KG"
+},
+{
+"name": "Laos",
+"dial_code": "+856",
+"code": "LA"
+},
+{
+"name": "Latvia",
+"dial_code": "+371",
+"code": "LV"
+},
+{
+"name": "Lebanon",
+"dial_code": "+961",
+"code": "LB"
+},
+{
+"name": "Lesotho",
+"dial_code": "+266",
+"code": "LS"
+},
+{
+"name": "Liberia",
+"dial_code": "+231",
+"code": "LR"
+},
+{
+"name": "Libyan Arab Jamahiriya",
+"dial_code": "+218",
+"code": "LY"
+},
+{
+"name": "Liechtenstein",
+"dial_code": "+423",
+"code": "LI"
+},
+{
+"name": "Lithuania",
+"dial_code": "+370",
+"code": "LT"
+},
+{
+"name": "Luxembourg",
+"dial_code": "+352",
+"code": "LU"
+},
+{
+"name": "Macao",
+"dial_code": "+853",
+"code": "MO"
+},
+{
+"name": "Macedonia",
+"dial_code": "+389",
+"code": "MK"
+},
+{
+"name": "Madagascar",
+"dial_code": "+261",
+"code": "MG"
+},
+{
+"name": "Malawi",
+"dial_code": "+265",
+"code": "MW"
+},
+{
+"name": "Malaysia",
+"dial_code": "+60",
+"code": "MY"
+},
+{
+"name": "Maldives",
+"dial_code": "+960",
+"code": "MV"
+},
+{
+"name": "Mali",
+"dial_code": "+223",
+"code": "ML"
+},
+{
+"name": "Malta",
+"dial_code": "+356",
+"code": "MT"
+},
+{
+"name": "Marshall Islands",
+"dial_code": "+692",
+"code": "MH"
+},
+{
+"name": "Martinique",
+"dial_code": "+596",
+"code": "MQ"
+},
+{
+"name": "Mauritania",
+"dial_code": "+222",
+"code": "MR"
+},
+{
+"name": "Mauritius",
+"dial_code": "+230",
+"code": "MU"
+},
+{
+"name": "Mayotte",
+"dial_code": "+262",
+"code": "YT"
+},
+{
+"name": "Mexico",
+"dial_code": "+52",
+"code": "MX"
+},
+{
+"name": "Micronesia, Federated States of Micronesia",
+"dial_code": "+691",
+"code": "FM"
+},
+{
+"name": "Moldova",
+"dial_code": "+373",
+"code": "MD"
+},
+{
+"name": "Monaco",
+"dial_code": "+377",
+"code": "MC"
+},
+{
+"name": "Mongolia",
+"dial_code": "+976",
+"code": "MN"
+},
+{
+"name": "Montenegro",
+"dial_code": "+382",
+"code": "ME"
+},
+{
+"name": "Montserrat",
+"dial_code": "+1664",
+"code": "MS"
+},
+{
+"name": "Morocco",
+"dial_code": "+212",
+"code": "MA"
+},
+{
+"name": "Mozambique",
+"dial_code": "+258",
+"code": "MZ"
+},
+{
+"name": "Myanmar",
+"dial_code": "+95",
+"code": "MM"
+},
+{
+"name": "Namibia",
+"dial_code": "+264",
+"code": "NA"
+},
+{
+"name": "Nauru",
+"dial_code": "+674",
+"code": "NR"
+},
+{
+"name": "Nepal",
+"dial_code": "+977",
+"code": "NP"
+},
+{
+"name": "Netherlands",
+"dial_code": "+31",
+"code": "NL"
+},
+{
+"name": "Netherlands Antilles",
+"dial_code": "+599",
+"code": "AN"
+},
+{
+"name": "New Caledonia",
+"dial_code": "+687",
+"code": "NC"
+},
+{
+"name": "New Zealand",
+"dial_code": "+64",
+"code": "NZ"
+},
+{
+"name": "Nicaragua",
+"dial_code": "+505",
+"code": "NI"
+},
+{
+"name": "Niger",
+"dial_code": "+227",
+"code": "NE"
+},
+{
+"name": "Nigeria",
+"dial_code": "+234",
+"code": "NG"
+},
+{
+"name": "Niue",
+"dial_code": "+683",
+"code": "NU"
+},
+{
+"name": "Norfolk Island",
+"dial_code": "+672",
+"code": "NF"
+},
+{
+"name": "Northern Mariana Islands",
+"dial_code": "+1670",
+"code": "MP"
+},
+{
+"name": "Norway",
+"dial_code": "+47",
+"code": "NO"
+},
+{
+"name": "Oman",
+"dial_code": "+968",
+"code": "OM"
+},
+{
+"name": "Palau",
+"dial_code": "+680",
+"code": "PW"
+},
+{
+"name": "Palestinian Territory, Occupied",
+"dial_code": "+970",
+"code": "PS"
+},
+{
+"name": "Panama",
+"dial_code": "+507",
+"code": "PA"
+},
+{
+"name": "Papua New Guinea",
+"dial_code": "+675",
+"code": "PG"
+},
+{
+"name": "Paraguay",
+"dial_code": "+595",
+"code": "PY"
+},
+{
+"name": "Peru",
+"dial_code": "+51",
+"code": "PE"
+},
+{
+"name": "Philippines",
+"dial_code": "+63",
+"code": "PH"
+},
+{
+"name": "Pitcairn",
+"dial_code": "+872",
+"code": "PN"
+},
+{
+"name": "Poland",
+"dial_code": "+48",
+"code": "PL"
+},
+{
+"name": "Portugal",
+"dial_code": "+351",
+"code": "PT"
+},
+{
+"name": "Puerto Rico",
+"dial_code": "+1939",
+"code": "PR"
+},
+{
+"name": "Qatar",
+"dial_code": "+974",
+"code": "QA"
+},
+{
+"name": "Romania",
+"dial_code": "+40",
+"code": "RO"
+},
+{
+"name": "Russia",
+"dial_code": "+7",
+"code": "RU"
+},
+{
+"name": "Rwanda",
+"dial_code": "+250",
+"code": "RW"
+},
+{
+"name": "Reunion",
+"dial_code": "+262",
+"code": "RE"
+},
+{
+"name": "Saint Barthelemy",
+"dial_code": "+590",
+"code": "BL"
+},
+{
+"name": "Saint Helena, Ascension and Tristan Da Cunha",
+"dial_code": "+290",
+"code": "SH"
+},
+{
+"name": "Saint Kitts and Nevis",
+"dial_code": "+1869",
+"code": "KN"
+},
+{
+"name": "Saint Lucia",
+"dial_code": "+1758",
+"code": "LC"
+},
+{
+"name": "Saint Martin",
+"dial_code": "+590",
+"code": "MF"
+},
+{
+"name": "Saint Pierre and Miquelon",
+"dial_code": "+508",
+"code": "PM"
+},
+{
+"name": "Saint Vincent and the Grenadines",
+"dial_code": "+1784",
+"code": "VC"
+},
+{
+"name": "Samoa",
+"dial_code": "+685",
+"code": "WS"
+},
+{
+"name": "San Marino",
+"dial_code": "+378",
+"code": "SM"
+},
+{
+"name": "Sao Tome and Principe",
+"dial_code": "+239",
+"code": "ST"
+},
+{
+"name": "Saudi Arabia",
+"dial_code": "+966",
+"code": "SA"
+},
+{
+"name": "Senegal",
+"dial_code": "+221",
+"code": "SN"
+},
+{
+"name": "Serbia",
+"dial_code": "+381",
+"code": "RS"
+},
+{
+"name": "Seychelles",
+"dial_code": "+248",
+"code": "SC"
+},
+{
+"name": "Sierra Leone",
+"dial_code": "+232",
+"code": "SL"
+},
+{
+"name": "Singapore",
+"dial_code": "+65",
+"code": "SG"
+},
+{
+"name": "Slovakia",
+"dial_code": "+421",
+"code": "SK"
+},
+{
+"name": "Slovenia",
+"dial_code": "+386",
+"code": "SI"
+},
+{
+"name": "Solomon Islands",
+"dial_code": "+677",
+"code": "SB"
+},
+{
+"name": "Somalia",
+"dial_code": "+252",
+"code": "SO"
+},
+{
+"name": "South Africa",
+"dial_code": "+27",
+"code": "ZA"
+},
+{
+"name": "South Sudan",
+"dial_code": "+211",
+"code": "SS"
+},
+{
+"name": "South Georgia and the South Sandwich Islands",
+"dial_code": "+500",
+"code": "GS"
+},
+{
+"name": "Spain",
+"dial_code": "+34",
+"code": "ES"
+},
+{
+"name": "Sri Lanka",
+"dial_code": "+94",
+"code": "LK"
+},
+{
+"name": "Sudan",
+"dial_code": "+249",
+"code": "SD"
+},
+{
+"name": "Suriname",
+"dial_code": "+597",
+"code": "SR"
+},
+{
+"name": "Svalbard and Jan Mayen",
+"dial_code": "+47",
+"code": "SJ"
+},
+{
+"name": "Swaziland",
+"dial_code": "+268",
+"code": "SZ"
+},
+{
+"name": "Sweden",
+"dial_code": "+46",
+"code": "SE"
+},
+{
+"name": "Switzerland",
+"dial_code": "+41",
+"code": "CH"
+},
+{
+"name": "Syrian Arab Republic",
+"dial_code": "+963",
+"code": "SY"
+},
+{
+"name": "Taiwan",
+"dial_code": "+886",
+"code": "TW"
+},
+{
+"name": "Tajikistan",
+"dial_code": "+992",
+"code": "TJ"
+},
+{
+"name": "Tanzania, United Republic of Tanzania",
+"dial_code": "+255",
+"code": "TZ"
+},
+{
+"name": "Thailand",
+"dial_code": "+66",
+"code": "TH"
+},
+{
+"name": "Timor-Leste",
+"dial_code": "+670",
+"code": "TL"
+},
+{
+"name": "Togo",
+"dial_code": "+228",
+"code": "TG"
+},
+{
+"name": "Tokelau",
+"dial_code": "+690",
+"code": "TK"
+},
+{
+"name": "Tonga",
+"dial_code": "+676",
+"code": "TO"
+},
+{
+"name": "Trinidad and Tobago",
+"dial_code": "+1868",
+"code": "TT"
+},
+{
+"name": "Tunisia",
+"dial_code": "+216",
+"code": "TN"
+},
+{
+"name": "Turkey",
+"dial_code": "+90",
+"code": "TR"
+},
+{
+"name": "Turkmenistan",
+"dial_code": "+993",
+"code": "TM"
+},
+{
+"name": "Turks and Caicos Islands",
+"dial_code": "+1649",
+"code": "TC"
+},
+{
+"name": "Tuvalu",
+"dial_code": "+688",
+"code": "TV"
+},
+{
+"name": "Uganda",
+"dial_code": "+256",
+"code": "UG"
+},
+{
+"name": "Ukraine",
+"dial_code": "+380",
+"code": "UA"
+},
+{
+"name": "United Arab Emirates",
+"dial_code": "+971",
+"code": "AE"
+},
+{
+"name": "United Kingdom",
+"dial_code": "+44",
+"code": "GB"
+},
+{
+"name": "United States",
+"dial_code": "+1",
+"code": "US"
+},
+{
+"name": "Uruguay",
+"dial_code": "+598",
+"code": "UY"
+},
+{
+"name": "Uzbekistan",
+"dial_code": "+998",
+"code": "UZ"
+},
+{
+"name": "Vanuatu",
+"dial_code": "+678",
+"code": "VU"
+},
+{
+"name": "Venezuela, Bolivarian Republic of Venezuela",
+"dial_code": "+58",
+"code": "VE"
+},
+{
+"name": "Vietnam",
+"dial_code": "+84",
+"code": "VN"
+},
+{
+"name": "Virgin Islands, British",
+"dial_code": "+1284",
+"code": "VG"
+},
+{
+"name": "Virgin Islands, U.S.",
+"dial_code": "+1340",
+"code": "VI"
+},
+{
+"name": "Wallis and Futuna",
+"dial_code": "+681",
+"code": "WF"
+},
+{
+"name": "Yemen",
+"dial_code": "+967",
+"code": "YE"
+},
+{
+"name": "Zambia",
+"dial_code": "+260",
+"code": "ZM"
+},
+{
+"name": "Zimbabwe",
+"dial_code": "+263",
+"code": "ZW"
+}
+];
+
+var select = document.getElementById("countrySelect");
+
+countryCodes.forEach(function(country) {
+  var option = document.createElement("option");
+  option.value = country.dial_code;
+  option.text = country.name + " (" + country.dial_code + ")";
+  select.appendChild(option);
+});
+
+// Loop through the array and create a dropdown item for each country code
+
+function limit(element)
+{
+    var max_chars = 10;
+
+    if(element.value.length > max_chars) {
+        element.value = element.value.substr(0, max_chars);
+    }
+}
+    </script>
+  </body>
+  <!--end::Body-->
+</html>

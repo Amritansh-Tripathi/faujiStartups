@@ -1,0 +1,488 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fauji Startups</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <meta name="description" content="" />
+
+    <link
+      href="/static/assets/css/main5883.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="/static/assets/css/style5883.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="/static/assets/plugins/highlight.js/styles/railscasts.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script
+      src="/static/assets/js/main.bundle5883.js"
+      type="application/javascript"
+    ></script>
+    <script
+      src="/static/assets/js/demo_like5883.js"
+      type="application/javascript"
+    ></script>
+    <script src="/static/assets/plugins/highlight.js/lib/highlight.js"></script>
+    <script
+      src="/static/assets/plugins/highlight.js/build/highlight.pack.js"
+      type="application/javascript"
+    ></script>
+    <script
+      src="/static/assets/js/docs5883.js"
+      type="application/javascript"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
+    />
+
+    <link rel="shortcut icon" href="/static/assets/media/custom-1.png" />
+    <!--begin::Fonts(mandatory for all pages)-->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700"
+    />
+    <!--end::Fonts-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css"
+      integrity="sha512-vebUliqxrVkBy3gucMhClmyQP9On/HAWQdKDXRaAlb/FKuTbxkjPKUyqVOxAcGwFDka79eTF+YXwfke1h3/wfg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--begin::Vendor Stylesheets(used for this page only)-->
+    <link
+      href="/static/assets/plugins/custom/leaflet/leaflet.bundle.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="/static/assets/plugins/custom/datatables/datatables.bundle.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!--end::Vendor Stylesheets-->
+
+    <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
+    <link
+      href="/static/assets/plugins/global/plugins.bundle.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="/static/assets/css/style.bundle.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!--end::Global Stylesheets Bundle-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.14.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.0/mapbox-gl.js"></script>
+    <style>
+      .marker {
+      background-color: #3388ff;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.8);
+      cursor: pointer;
+    }
+    .marker:hover {
+      transform: scale(1.5);
+    }
+    </style>
+  </head>
+
+  <body class="header-enabled header-inverse">
+    <!--begin::Wrapper-->
+    <div class="wrapper">
+
+      <section
+        class="subheader bgi-size-cover" style="background-image: url('/static/assets/media/mapbg.png');
+          background-repeat: no-repeat;
+          background-size: cover;">
+        <header
+          id="site_header"
+          class="header header-inner sticky-top bg-white-opacity-10 h-100px"
+        >
+          <div
+            class="container d-flex justify-content-between align-items-stretch"
+          >
+            <div class="d-flex align-items-center">
+              <a
+                href="#"
+                class="header-brand mr-3 mr-lg-25"
+                style="margin-top: 5%"
+              >
+                <img
+                  alt="logo"
+                  src="/static/assets/media/custom-1.png"
+                  class="logo-white h-70px"
+                />
+              </a>
+            </div>
+
+            <div
+              class="d-flex justify-content-end flex-lg-grow-1 align-items-stretch"
+            >
+              <ul class="topbar d-flex align-items-stretch">
+                <li class="topbar-wrapper d-flex align-items-stretch">
+                  <div class="topbar-item mr-5 mr-md-7 d-sm-flex">
+                    <a href="/user"
+                      class="btn btn-flex btn-success font-weight-bolder px-5"
+                    >
+                      Dashboard
+                    </a>
+                  </div>
+                </li>
+                <li class="topbar-wrapper d-flex align-items-stretch">
+                  <div class="topbar-item">
+                    <a href="/signup"
+                      class="btn btn-flex btn-success font-weight-bolder px-5"
+                    >
+                      Register
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        <div class="position-relative container app-container container-xxl d-flex flex-stack text-dark justify-content-start" >
+                                 <!--begin::Menu item-->
+                        <div class="menu-item">
+                            <!--begin::Menu link-->
+                            <a class="menu-link nav-link active py-3 text-white " data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true"> <span id="tot_registration"></span>&nbsp; registrations</a>
+                            <!--end::Menu link-->
+                        </div>
+                      <div class="menu-item">
+                            <!--begin::Menu link-->
+                            <a class="menu-link nav-link active py-3 text-white" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true"><span id="tot_visitor"></span>&nbsp;visitors </a>
+                            <!--end::Menu link-->
+                        </div>
+                        <!--end::Menu item-->
+        </div>
+      </section>
+      <section
+        class="subheader bgi-size-cover bg-transparent h-750px" id="map">
+      </section>
+      <footer class="footer block-dark mt-n15 mt-lg-n30">
+        <div
+          class="h-50px bgi-no-repeat bgi-position-x-center bgi-position-y-top bgi-size-cover dark-top-curved-bg"
+        ></div>
+
+        <div class="container mt-n15 d-none">
+          <div class="row">
+            <div class="col-sm-12 col-lg-6">
+              <div class="dark-outline rounded-lg px-10 py-8 mr-lg-15 mb-7">
+                <h3 class="mb-3 text-white">Contact Us</h3>
+                <div class="font-size-3 text-white">
+                  Email us to
+                  <a
+                    class="text-dark-60 text-hover-primary font-weight-bold"
+                    href=""
+                    >faujistartups@gmail.com</a
+                  >
+                </div>
+              </div>
+
+              <div
+                class="dark-outline rounded-lg px-10 py-8 mr-lg-15 mb-10 mb-lg-0 p-5"
+              >
+                <h3 class="mb-3 text-white">How About a Custom Project ?</h3>
+                <div class="font-size-3 text-white">
+                  Use Our Custom Development Service.
+                  <a
+                    class="text-dark-60 text-hover-primary font-weight-bold"
+                    href=""
+                    >Click to Get a Quote</a
+                  >
+                </div>
+              </div>
+              <br />
+            </div>
+            <div
+              class="col-6 col-lg-3 d-flex justify-content-center justify-content-lg-start"
+            >
+              <div class="ml-lg-20 pb-10">
+                <h3 class="text-muted display-3 mb-5 mb-lg-7 font-size-4">
+                  Resources
+                </h3>
+              </div>
+            </div>
+            <div
+              class="col-6 col-lg-3 d-flex justify-content-center justify-content-lg-start"
+            ></div>
+          </div>
+        </div>
+
+        <div style="border-top: 1px solid #005c29"></div>
+
+        <div class="container py-5 py-lg-10">
+          <div
+            class="d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-between"
+          >
+            <div class="d-flex align-items-center mr-md-2 order-2 order-md-1">
+              <a href="" class="mr-3 mr-md-6">
+                <img
+                  alt="logo"
+                  src="/static/assets/media/custom-1.png"
+                  class="h-20px h-md-25px"
+                />
+              </a>
+
+              <span
+                class="font-size-2 font-weight-bold text-dark-60 pt-1"
+                href=""
+              >
+                &copy; 2023 faujistartups.com
+              </span>
+            </div>
+            <div
+              class="dark-outline flex-center rounded-lg px-10 py-8 mr-lg-15 mb-7"
+            >
+              <h3 class="mb-3 text-white"></h3>
+              <div class="font-size-3 text-white">
+                Developed by
+                <a
+                  class="text-dark-60 text-hover-primary font-weight-bold"
+                  href="https://iqueststar.com"
+                  >iQueststar Edutech Pvt. Ltd.</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!--end::Wrapper-->
+
+    <!-- Start of LiveChat (www.livechat.com) code -->
+    <script>
+      window.__lc = window.__lc || {};
+      window.__lc.license = 14418225;
+      (function (n, t, c) {
+        function i(n) {
+          return e._h ? e._h.apply(null, n) : e._q.push(n);
+        }
+        var e = {
+          _q: [],
+          _h: null,
+          _v: "2.0",
+          on: function () {
+            i(["on", c.call(arguments)]);
+          },
+          once: function () {
+            i(["once", c.call(arguments)]);
+          },
+          off: function () {
+            i(["off", c.call(arguments)]);
+          },
+          get: function () {
+            if (!e._h)
+              throw new Error(
+                "[LiveChatWidget] You can't use getters before load."
+              );
+            return i(["get", c.call(arguments)]);
+          },
+          call: function () {
+            i(["call", c.call(arguments)]);
+          },
+          init: function () {
+            var n = t.createElement("script");
+            (n.async = !0),
+              (n.type = "text/javascript"),
+              (n.src = "../../cdn.livechatinc.com/tracking.js"),
+              t.head.appendChild(n);
+          },
+        };
+        !n.__lc.asyncInit && e.init(),
+          (n.LiveChatWidget = n.LiveChatWidget || e);
+      })(window, document, [].slice);
+    </script>
+    <script>
+    window.onload = function() {
+  // Your code here
+  fetch('https://api.ipify.org?format=json')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data.ip);
+    var payload={action:'Activity', ip:data.ip};
+    ajax(payload.action, payload);
+  })
+  .catch(error => {
+    console.error('Error getting IP address:', error);
+  });
+  console.log("Page loaded");
+  TotalQueries_location();
+};
+
+      const mapContainer = document.getElementById("map");
+
+      let timeoutId;
+
+      function redirectToRegistration() {
+        // window.location.href = "/signup";
+      }
+
+      mapContainer.addEventListener("mousemove", function () {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(redirectToRegistration, 7000);
+      });
+
+      mapContainer.addEventListener("scroll", function () {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(redirectToRegistration, 7000);
+      });
+    </script>
+   
+
+    <!--begin::Global Javascript Bundle(mandatory for all pages)-->
+    <script src="/static/assets/plugins/global/plugins.bundle.js"></script>
+    <script src="/static/assets/js/scripts.bundle.js"></script>
+    <!--end::Global Javascript Bundle-->
+
+    <!--begin::Vendors Javascript(used for this page only)-->
+    <script src="/static/assets/plugins/custom/leaflet/leaflet.bundle.js"></script>
+    <script src="/static/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <!--end::Vendors Javascript-->
+
+    <!--begin::Custom Javascript(used for this page only)-->
+    <script src="/static/assets/js/widgets.bundle.js"></script>
+    <script src="/static/assets/js/custom/widgets.js"></script>
+    <script src="/static/assets/js/custom/apps/chat/chat.js"></script>
+    <script src="/static/assets/js/custom/utilities/modals/upgrade-plan.js"></script>
+    <script src="/static/assets/js/custom/utilities/modals/create-app.js"></script>
+    <script src="/static/assets/js/custom/utilities/modals/select-location.js"></script>
+    <script src="/static/assets/js/custom/utilities/modals/users-search.js"></script>
+    <!--end::Custom Javascript-->
+    <!--end::Javascript-->
+    <script>
+    </script>
+    <script src="/static/assets/js/custom/apps/subscriptions/list/export.js"></script>
+    <script src="/static/assets/js/custom/apps/subscriptions/list/list.js"></script>
+    <script src="/static/assets/js/widgets.bundle.js"></script>
+    <script src="/static/assets/js/custom/widgets.js"></script>
+    <script src="/static/assets/js/custom/apps/chat/chat.js"></script>
+    <script src="/static/assets/js/custom/utilities/modals/upgrade-plan.js"></script>
+    <script src="/static/assets/js/custom/utilities/modals/create-app.js"></script>
+    <script src="/static/assets/js/custom/utilities/modals/users-search.js"></script>
+    <noscript
+      ><a href="https://www.livechat.com/chat-with/14418225/" rel="nofollow"
+        >Chat with us</a
+      >, powered by
+      <a
+        href="https://www.livechat.com/?welcome"
+        rel="noopener nofollow"
+        target="_blank"
+        >LiveChat</a
+      ></noscript
+    >
+    <!-- End of LiveChat code -->
+    <script>
+      function TotalQueries_location(){
+        var payload={action:'TotalQueries_location'}
+        ajax(payload.action, payload);
+      }
+      //----------handle ajax----------
+      function ajax(action, payload) {
+        const xhr = new XMLHttpRequest();
+        xhr.responseType = "json";
+        xhr.open("POST", "/actions");
+        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        xhr.send(JSON.stringify(payload));
+        console.log(JSON.stringify(payload));
+        xhr.onload = function () {
+          const response = xhr.response;
+          console.log(response);
+          if (response.action == "Activity") {
+            if (response.Status == 100) {
+
+            }
+            else if(response.Status == 200){
+            console.log(response);
+            document.getElementById('tot_registration').innerHTML=response.Data.tot_registration;
+            document.getElementById('tot_visitor').innerHTML=response.Data.tot_visitor;
+            }
+          }
+          if (response.action == "TotalQueries_location") {
+            if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(showPosition);
+} else {
+  console.log("Geolocation is not supported by this browser.");
+}
+
+function showPosition(position) {
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+  
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYWRpdHlhLTI0MDciLCJhIjoiY2xnZTN0dzltMXpnZDNjbzZ4NzB6dmk3aCJ9.q4IjsdbmlecZ52yeEXY2MQ';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/aditya-2407/clggfvxk8004101pkcgzw1ie4',
+    center: [longitude, latitude],
+    zoom: 2
+  });
+
+  map.on('style.load', () => {
+    map.setFog({}); // Set the default atmosphere style
+  });
+
+  var markers = response.Number.Markers;
+
+  markers.forEach(function(marker) {
+    var el = document.createElement('div');
+    el.className = 'marker';
+    new mapboxgl.Marker(el)
+      .setLngLat(marker.coordinates)
+      .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+      .setHTML('<h3>' + marker.title + '</h3><p>' + marker.description + '</p>'))
+      .addTo(map);
+  });
+
+  // Add red marker for user's current location
+  var userMarker = document.createElement('div');
+  userMarker.className = 'marker';
+  userMarker.style.backgroundColor = 'red';
+  new mapboxgl.Marker(userMarker)
+    .setLngLat([longitude, latitude])
+    .setPopup(new mapboxgl.Popup({ offset: 25 })
+    .setHTML('<h3>Your location</h3>'))
+    .addTo(map);
+}
+
+          }
+      }
+      }
+    </script>
+  </body>
+</html>
